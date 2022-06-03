@@ -10,7 +10,7 @@ public class RegularBoard : Board
     }
     protected override List<Piece> Generate(int maximumInput){
         List<Piece> result = new();
-        for (int i = 1; i <= maximumInput; i++)
+        for (int i = 0; i <= maximumInput; i++)
         {
             for (int j = i; j <= maximumInput; j++)
             {
