@@ -7,7 +7,7 @@ public class PlayerRandom : IPlayer
     {
         this.Hand = hand;
     }
-
+    //ADD
     public Piece Play(Board board)
     {
         Random random = new Random();
