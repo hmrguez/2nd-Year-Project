@@ -1,11 +1,14 @@
-public class RegularShuffler : IShuffler{
-    public void Shuffle(IGame game){
+public class RegularShuffler : IShuffler
+{
+    public void Shuffle(IGame game)
+    {
         foreach (var item in game.Players)
         {
-            ShufflePlayer(item,game);
+            ShufflePlayer(item, game);
         }
     }
-    public void ShufflePlayer(IPlayer player, IGame game){
+    public void ShufflePlayer(IPlayer player, IGame game)
+    {
         Random random = new();
         for (int i = 0; i < game.MaxHandSize; i++)
         {
@@ -16,14 +19,17 @@ public class RegularShuffler : IShuffler{
         }
     }
 }
-public class SortedShuffler: IShuffler{
-    public void Shuffle ( IGame game){
+public class SortedShuffler : IShuffler
+{
+    public void Shuffle(IGame game)
+    {
         foreach (var item in game.Players)
         {
-            ShufflePlayer(item,game);
+            ShufflePlayer(item, game);
         }
     }
-    public void ShufflePlayer(IPlayer player, IGame game){
+    public void ShufflePlayer(IPlayer player, IGame game)
+    {
         game.Board.Deck.Sort(new SortedByLeft());
         for (int i = 0; i < game.MaxHandSize; i++)
         {

@@ -2,15 +2,16 @@ using System.Collections.Generic;
 
 public class IGame
 {
-    public int MaxHandSize { get;}
-    public List<Round> Rounds { get; set;}
-    public IPlayer[] Players { get;}
-    public Board Board { get;}
-    public IWinnable WinCondition { get;}
-    public IRounder Rounder { get;}
-    public IShuffler Shuffler { get;}
-    public IPlayer CurrentPlayer { get; set;}
-    public IGame(int maxHandSize, IPlayer[] players, Board board, IWinnable winCondition, IRounder rounder, IShuffler shuffler){
+    public int MaxHandSize { get; }
+    public List<Round> Rounds { get; set; }
+    public IPlayer[] Players { get; }
+    public Board Board { get; }
+    public IWinnable WinCondition { get; }
+    public IRounder Rounder { get; }
+    public IShuffler Shuffler { get; }
+    public IPlayer CurrentPlayer { get; set; }
+    public IGame(int maxHandSize, IPlayer[] players, Board board, IWinnable winCondition, IRounder rounder, IShuffler shuffler)
+    {
         MaxHandSize = maxHandSize;
         Players = players;
         Board = board;
@@ -41,7 +42,8 @@ public abstract class Piece : IValuable
     public abstract bool CanPlay(Board board);
 
     ///<summary> Rotates the piece so their side values change position </summary>
-    public Piece Rotate(){
+    public Piece Rotate()
+    {
         int c = Left;
         Left = Right;
         Right = c;
@@ -49,8 +51,9 @@ public abstract class Piece : IValuable
     }
 
     ///<returns> The total value of the piece, generally the sum of the sides </returns>
-    public int GetValue(){
-        return Left+Right;
+    public int GetValue()
+    {
+        return Left + Right;
     }
 
     ///<returns> True if any side of this piece matches the int, false if doesn't </returns>
