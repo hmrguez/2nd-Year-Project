@@ -2,10 +2,7 @@ public class RegularShuffler : IShuffler
 {
     public void Shuffle(IGame game)
     {
-        foreach (var item in game.Players)
-        {
-            ShufflePlayer(item, game);
-        }
+        foreach (var item in game.Players) ShufflePlayer(item, game);
     }
     public void ShufflePlayer(IPlayer player, IGame game)
     {

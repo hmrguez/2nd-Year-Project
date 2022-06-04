@@ -20,11 +20,12 @@ public class OnlyEvenDoublesPiece : Piece
     }
     public override bool CanPlay(Board board)
     {
+        var temp = new RegularPiece(Left,Right);
         if (Left == Right)
         {
-            if (board.PiecesOnBoard.Count() % 2 == 0) return true;
+            if (board.PiecesOnBoard.Count() % 2 == 0) return temp.CanPlay(board);
             return false;
         }
-        return true;
+        return temp.CanPlay(board);
     }
 }
