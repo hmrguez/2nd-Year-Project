@@ -6,10 +6,7 @@ public class RegularPiece : Piece
         Left = left;
         Right = right;
     }
-    public override bool CanPlay(Board board)
-    {
-        return Match(board.PiecesOnBoard.First().Left) || Match(board.PiecesOnBoard.Last().Right);
-    }
+    public override bool CanPlay(Board board) => Match(board.PiecesOnBoard.First().Left) || Match(board.PiecesOnBoard.Last().Right);
 }
 public class OnlyEvenDoublesPiece : Piece
 {

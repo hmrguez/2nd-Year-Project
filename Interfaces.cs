@@ -50,21 +50,12 @@ public abstract class Piece : IValuable
         return this;
     }
 
-    ///<returns> The total value of the piece, generally the sum of the sides </returns>
-    public int GetValue()
-    {
-        return Left + Right;
-    }
+    ///<returns> The total value of the piece, the sum of the sides </returns>
+    public int GetValue() => Left + Right;
 
     ///<returns> True if any side of this piece matches the int, false if doesn't </returns>
-    public bool Match(int num)
-    {
-        return (Left == num || Right == num) ? true : false;
-    }
-    public override string ToString()
-    {
-        return $"[{Left}|{Right}]";
-    }
+    public bool Match(int num) => (Left == num || Right == num) ? true : false;
+    public override string ToString() => $"[{Left}|{Right}]";
 }
 public interface IRounder
 {
