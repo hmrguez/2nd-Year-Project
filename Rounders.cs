@@ -16,8 +16,5 @@ public class CounterClockWise : IRounder
 }
 public class SkipTurn : IRounder
 {
-    public IPlayer NextPlayer(IGame game)
-    {
-        return game.Rounds.Last().Piece == null ? new CounterClockWise().NextPlayer(game) : new Clockwise().NextPlayer(game);
-    }
+    public IPlayer NextPlayer(IGame game) => game.Rounds.Last().Piece == null ? new CounterClockWise().NextPlayer(game) : new Clockwise().NextPlayer(game);
 }

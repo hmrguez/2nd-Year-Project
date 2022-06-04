@@ -9,7 +9,7 @@ public class RegularWinnable : IWinnable
     }
     public bool EndCondition(IGame game)
     {
-        if (Utilities.IsBlocked(game)) return true;
+        if (Utils.IsBlocked(game)) return true;
         if (game.Rounds.Last().Player.Hand.Count == 0)
         {
             Won = true;
@@ -17,16 +17,7 @@ public class RegularWinnable : IWinnable
         }
         return false;
     }
-    public IPlayer Winner(IGame game)
-    {
-        if (Won) return game.Rounds.Last().Player;
-        Dictionary<IPlayer, int> Scores = new();
-        foreach (var item in game.Players)
-        {
-            Scores.Add(item, HandCounter.GetHandValue(item));
-        }
-        return Scores.MinBy(x => x.Value).Key;
-    }
+    public IPlayer Winner(IGame game)  => Won ? game.Rounds.Last().Player : Utils.StandardCounter(game,HandCounter);
 }
 public class DropDoubleBlank : IWinnable
 {
@@ -39,7 +30,7 @@ public class DropDoubleBlank : IWinnable
     }
     public bool EndCondition(IGame game)
     {
-        if (Utilities.IsBlocked(game)) return true;
+        if (Utils.IsBlocked(game)) return true;
         if (game.Rounds.Last().Piece.Left == 0 && game.Rounds.Last().Piece.Right == 0)
         {
             Won = true;
@@ -47,14 +38,5 @@ public class DropDoubleBlank : IWinnable
         }
         return false;
     }
-    public IPlayer Winner(IGame game)
-    {
-        if (Won) return game.Rounds.Last().Player;
-        Dictionary<IPlayer, int> Scores = new();
-        foreach (var item in game.Players)
-        {
-            Scores.Add(item, HandCounter.GetHandValue(item));
-        }
-        return Scores.MinBy(x => x.Value).Key;
-    }
+    public IPlayer Winner(IGame game) => Won ? game.Rounds.Last().Player : Utils.StandardCounter(game,HandCounter);
 }

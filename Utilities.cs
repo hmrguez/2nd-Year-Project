@@ -1,4 +1,4 @@
-public static class Utilities
+public static class Utils
 {
     public static bool IsBlocked(IGame game)
     {
@@ -11,5 +11,13 @@ public static class Utilities
             }
         }
         return false;
+    }
+    public static IPlayer StandardCounter(IGame game, IHandCounter HandCounter){
+        Dictionary<IPlayer, int> Scores = new();
+        foreach (var item in game.Players)
+        {
+            Scores.Add(item, HandCounter.GetHandValue(item));
+        }
+        return Scores.MinBy(x => x.Value).Key;
     }
 }
