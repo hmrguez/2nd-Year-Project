@@ -21,6 +21,26 @@ public class RegularBoard : Board
         return result;
     }
 }
+public class DoubleEvenBoard : Board  
+{
+    public DoubleEvenBoard(int maxInput)
+    {
+        this.PiecesOnBoard = new Table();
+        this.Deck = Generate(maxInput);
+    }
+    protected override List<Piece> Generate(int maximumInput){
+        List<Piece> result = new();
+        for (int i = 0; i <= maximumInput; i++)
+        {
+            for (int j = i; j <= maximumInput; j++)
+            {
+                var temp = new OnlyEvenDoublesPiece(i,j);
+                result.Add(temp);
+            }
+        }
+        return result;
+    }
+}
 public class Table
 {
     private List<Piece> _onBoard;

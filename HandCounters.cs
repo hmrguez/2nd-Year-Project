@@ -1,18 +1,8 @@
 public class RegularHandCounter : IHandCounter
 {
-    public int GetHandValue(IPlayer player)
-    {
-        int cost = 0;
-        foreach (var item in player.Hand) cost += item.GetValue();
-        return cost;
-    }
+    public int GetHandValue(IPlayer player) => player.Hand.Sum(x => x.GetValue());
 }
 public class DoubleDoubleHandCounter : IHandCounter
 {
-    public int GetHandValue(IPlayer player)
-    {
-        int cost = 0;
-        foreach (var item in player.Hand) cost+= (item.Left == item.Right) ? item.GetValue() * 2 : cost += item.GetValue();
-        return cost;
-    }
+    public int GetHandValue(IPlayer player) => player.Hand.Sum(x => (x.Left == x.Right) ? x.GetValue() * 2 : x.GetValue());
 }
