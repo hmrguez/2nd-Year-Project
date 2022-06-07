@@ -12,7 +12,8 @@ public static class Utils
         }
         return false;
     }
-    public static IPlayer StandardCounter(IGame game, IHandCounter HandCounter){
+    public static IPlayer StandardCounter(IGame game, IHandCounter HandCounter)
+    {
         Dictionary<IPlayer, int> Scores = new();
         foreach (var item in game.Players)
         {
