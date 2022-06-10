@@ -12,13 +12,5 @@ public static class Utils
         }
         return false;
     }
-    public static IPlayer StandardCounter(IGame game, IHandCounter HandCounter)
-    {
-        Dictionary<IPlayer, int> Scores = new();
-        foreach (var item in game.Players)
-        {
-            Scores.Add(item, HandCounter.GetHandValue(item));
-        }
-        return Scores.MinBy(x => x.Value).Key;
-    }
+    public static IPlayer StandardCounter(IGame game, IHandCounter HandCounter) => game.Players.MinBy(x=>HandCounter.GetHandValue(x))!;
 }
