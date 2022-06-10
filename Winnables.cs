@@ -1,10 +1,10 @@
+namespace Domino;
+
 public class RegularWinnable : IWinnable
 {
     public bool Won { get; set; }
-    public IHandCounter HandCounter { get; set; }
-    public RegularWinnable(IHandCounter counter)
+    public RegularWinnable()
     {
-        HandCounter = counter;
         Won = false;
     }
     public bool EndCondition(IGame game)
@@ -17,15 +17,13 @@ public class RegularWinnable : IWinnable
         }
         return false;
     }
-    public IPlayer Winner(IGame game)  => Won ? game.Rounds.Last().Player : Utils.StandardCounter(game,HandCounter);
+    public IPlayer Winner(IGame game) => Won ? game.Rounds.Last().Player : Utils.StandardCounter(game, game.HandCounter);
 }
 public class DropDoubleBlank : IWinnable
 {
     public bool Won { get; set; }
-    public IHandCounter HandCounter { get; set; }
-    public DropDoubleBlank(IHandCounter counter)
+    public DropDoubleBlank()
     {
-        HandCounter = counter;
         Won = false;
     }
     public bool EndCondition(IGame game)
@@ -38,5 +36,5 @@ public class DropDoubleBlank : IWinnable
         }
         return false;
     }
-    public IPlayer Winner(IGame game) => Won ? game.Rounds.Last().Player : Utils.StandardCounter(game,HandCounter);
+    public IPlayer Winner(IGame game) => Won ? game.Rounds.Last().Player : Utils.StandardCounter(game, game.HandCounter);
 }

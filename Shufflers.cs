@@ -1,3 +1,5 @@
+namespace Domino;
+
 public class RegularShuffler : IShuffler
 {
     public void Shuffle(IGame game)

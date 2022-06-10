@@ -1,8 +1,9 @@
 
+namespace Domino;
 
 public class PlayerRandom : IPlayer
 {
-    public List<Piece> Hand { get; private set;}
+    public List<Piece> Hand { get; private set; }
     public PlayerRandom(List<Piece> hand)
     {
         this.Hand = hand;
@@ -16,7 +17,7 @@ public class PlayerRandom : IPlayer
 
         int number = random.Next(0, possiblePieces.Count());
         piece = possiblePieces[number];
-        
+
         RemovePiece(piece);
 
         return piece;
@@ -25,14 +26,15 @@ public class PlayerRandom : IPlayer
     {
         return new List<Piece>(this.Hand.Where(piece => piece.CanPlay(board)));
     }
-    private void RemovePiece(Piece piece){
+    private void RemovePiece(Piece piece)
+    {
         this.Hand.Remove(piece);
         this.Hand = new List<Piece>(this.Hand);
     }
 }
 public class PlayerMostValue : IPlayer
 {
-    public List<Piece> Hand { get ; private set; }
+    public List<Piece> Hand { get; private set; }
     private IComparer<Piece>? _comparer;
     public PlayerMostValue(List<Piece> hand, IComparer<Piece> comparer)
     {
@@ -41,24 +43,25 @@ public class PlayerMostValue : IPlayer
     }
     public Piece Play(Board board)
     {
-        Piece? piece = this.Hand.Where(pieces=>pieces.CanPlay(board))
-                                .OrderByDescending(pieces=> pieces, this._comparer)
+        Piece? piece = this.Hand.Where(pieces => pieces.CanPlay(board))
+                                .OrderByDescending(pieces => pieces, this._comparer)
                                 .FirstOrDefault();
-        return piece;
+        return piece!;
     }
     private List<Piece> GetPossiblePieces(Board board)
     {
         return new List<Piece>(this.Hand.Where(piece => piece.CanPlay(board)));
     }
-    private void RemovePiece(Piece piece){
+    private void RemovePiece(Piece piece)
+    {
         this.Hand.Remove(piece);
         this.Hand = new List<Piece>(this.Hand);
     }
 }
 public class PlayerRanValue : IPlayer
 {
-    
-    public List<Piece> Hand { get ; private set ; }
+
+    public List<Piece> Hand { get; private set; }
     private IPlayer _mode;
     public PlayerRanValue(List<Piece> hand, IComparer<Piece> comparer)
     {
@@ -74,16 +77,17 @@ public class PlayerRanValue : IPlayer
     private void ChangingMind(Board board)
     {
         //Idea pobre por poner algo
-        if(board.PiecesOnBoard.Count() == 10)
+        if (board.PiecesOnBoard.Count() == 10)
         {
             this._mode = new PlayerRandom(this.Hand);
         }
     }
-     private List<Piece> GetPossiblePieces(Board board)
+    private List<Piece> GetPossiblePieces(Board board)
     {
         return new List<Piece>(this.Hand.Where(piece => piece.CanPlay(board)));
     }
-    private void RemovePiece(Piece piece){
+    private void RemovePiece(Piece piece)
+    {
         this.Hand.Remove(piece);
         this.Hand = new List<Piece>(this.Hand);
     }

@@ -1,3 +1,4 @@
+namespace Domino;
 
 public class RegularPiece : Piece
 {
@@ -17,7 +18,7 @@ public class OnlyEvenDoublesPiece : Piece
     }
     public override bool CanPlay(Board board)
     {
-        var temp = new RegularPiece(Left,Right);
+        var temp = new RegularPiece(Left, Right);
         if (Left == Right)
         {
             if (board.PiecesOnBoard.Count() % 2 == 0) return temp.CanPlay(board);

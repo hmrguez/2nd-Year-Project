@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+namespace Domino;
 
 public class IGame
 {
@@ -10,7 +11,8 @@ public class IGame
     public IRounder Rounder { get; }
     public IShuffler Shuffler { get; }
     public IPlayer CurrentPlayer { get; set; }
-    public IGame(int maxHandSize, IPlayer[] players, Board board, IWinnable winCondition, IRounder rounder, IShuffler shuffler)
+    public IHandCounter HandCounter { get; set; }
+    public IGame(int maxHandSize, IPlayer[] players, Board board, IWinnable winCondition, IRounder rounder, IShuffler shuffler, IHandCounter counter)
     {
         MaxHandSize = maxHandSize;
         Players = players;
@@ -20,6 +22,7 @@ public class IGame
         Shuffler = shuffler;
         Rounds = new();
         CurrentPlayer = Players[0];
+        HandCounter = counter;
     }
 }
 public interface IPlayer
@@ -66,9 +69,6 @@ public interface IWinnable
 {
     ///<summary> Determines if wether the game was won or wasn't (blocked generally) </summary>
     public bool Won { get; set; }
-
-    ///<summary> Determines the rule by which this IWinnable should count the value of the players' hand </summary>
-    public IHandCounter HandCounter { get; set; }
 
     ///<summary> Determines if this game has ended, changes the Won to true it was won </summary>
     ///<returns> True if the game has ended, false if it wasn't </returns>

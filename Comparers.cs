@@ -1,3 +1,6 @@
+namespace Domino;
+
+
 ///<summary> Sorts Pieces according to their base left value </summary>
 public class SortedByLeft : IComparer<Piece>
 {

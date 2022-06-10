@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vekt0R\\Documents\\Personal chest\\Tutoriales Programacion\\2do\\Proyecto\\domino\\domino.csproj": {}
+    "C:\\Users\\vekt0R\\Documents\\Personal chest\\Tutoriales Programacion\\2do\\Domino\\Domino.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vekt0R\\Documents\\Personal chest\\Tutoriales Programacion\\2do\\Proyecto\\domino\\domino.csproj": {
+    "C:\\Users\\vekt0R\\Documents\\Personal chest\\Tutoriales Programacion\\2do\\Domino\\Domino.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vekt0R\\Documents\\Personal chest\\Tutoriales Programacion\\2do\\Proyecto\\domino\\domino.csproj",
-        "projectName": "domino",
-        "projectPath": "C:\\Users\\vekt0R\\Documents\\Personal chest\\Tutoriales Programacion\\2do\\Proyecto\\domino\\domino.csproj",
+        "projectUniqueName": "C:\\Users\\vekt0R\\Documents\\Personal chest\\Tutoriales Programacion\\2do\\Domino\\Domino.csproj",
+        "projectName": "Domino",
+        "projectPath": "C:\\Users\\vekt0R\\Documents\\Personal chest\\Tutoriales Programacion\\2do\\Domino\\Domino.csproj",
         "packagesPath": "C:\\Users\\vekt0R\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vekt0R\\Documents\\Personal chest\\Tutoriales Programacion\\2do\\Proyecto\\domino\\obj\\",
+        "outputPath": "C:\\Users\\vekt0R\\Documents\\Personal chest\\Tutoriales Programacion\\2do\\Domino\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\vekt0R\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\vekt0R\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
