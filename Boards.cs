@@ -22,6 +22,10 @@ public class RegularBoard : Board
         }
         return result;
     }
+    public override string ToString()
+    {
+        return "Regular";
+    }
 }
 public class DoubleEvenBoard : Board
 {
@@ -42,6 +46,10 @@ public class DoubleEvenBoard : Board
             }
         }
         return result;
+    }
+    public override string ToString()
+    {
+        return "Double-even";
     }
 }
 public class Table

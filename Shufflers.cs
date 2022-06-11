@@ -17,6 +17,10 @@ public class RegularShuffler : IShuffler
             game.Board.Deck.Remove(piece);
         }
     }
+    public override string ToString()
+    {
+        return "Regular";
+    }
 }
 public class SortedByLeftShuffler : IShuffler
 {
@@ -36,6 +40,10 @@ public class SortedByLeftShuffler : IShuffler
             game.Board.Deck.RemoveAt(0);
         }
     }
+    public override string ToString()
+    {
+        return "Sorted by Left";
+    }
 }
 public class ValueSortedShuffler : IShuffler
 {
@@ -54,5 +62,9 @@ public class ValueSortedShuffler : IShuffler
             player.Hand.Add(game.Board.Deck[0]);
             game.Board.Deck.RemoveAt(0);
         }
+    }
+    public override string ToString()
+    {
+        return "Sorted by Value";
     }
 }

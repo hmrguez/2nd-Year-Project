@@ -18,6 +18,10 @@ public class RegularWinnable : IWinnable
         return false;
     }
     public IPlayer Winner(IGame game) => Won ? game.Rounds.Last().Player : Utils.StandardCounter(game, game.HandCounter);
+    public override string ToString()
+    {
+        return "Standard";
+    }
 }
 public class DropDoubleBlank : IWinnable
 {
@@ -37,4 +41,8 @@ public class DropDoubleBlank : IWinnable
         return false;
     }
     public IPlayer Winner(IGame game) => Won ? game.Rounds.Last().Player : Utils.StandardCounter(game, game.HandCounter);
+    public override string ToString()
+    {
+        return "Drop Double Blank";
+    }
 }
