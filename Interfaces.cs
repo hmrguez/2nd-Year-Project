@@ -32,8 +32,8 @@ public interface IPlayer
 }
 public abstract class Board
 {
-    public Table PiecesOnBoard { get; protected set; }
-    public List<Piece> Deck { get; protected set; }
+    public Table ?PiecesOnBoard { get; protected set; }
+    public List<Piece> ?Deck { get; protected set; }
     protected abstract List<Piece> Generate(int maximumInput);
 }
 public abstract class Piece : IValuable

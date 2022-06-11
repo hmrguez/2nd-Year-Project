@@ -11,7 +11,7 @@ public class RegularShuffler : IShuffler
         Random random = new();
         for (int i = 0; i < game.MaxHandSize; i++)
         {
-            int x = random.Next(game.Board.Deck.Count);
+            int x = random.Next(game.Board.Deck!.Count);
             Piece piece = game.Board.Deck[x];
             player.Hand.Add(piece);
             game.Board.Deck.Remove(piece);
@@ -33,7 +33,7 @@ public class SortedByLeftShuffler : IShuffler
     }
     public void ShufflePlayer(IPlayer player, IGame game)
     {
-        game.Board.Deck.Sort(new SortedByLeft());
+        game.Board.Deck!.Sort(new SortedByLeft());
         for (int i = 0; i < game.MaxHandSize; i++)
         {
             player.Hand.Add(game.Board.Deck[0]);
@@ -56,7 +56,7 @@ public class ValueSortedShuffler : IShuffler
     }
     public void ShufflePlayer(IPlayer player, IGame game)
     {
-        game.Board.Deck.Sort(new SortedByValue());
+        game.Board.Deck!.Sort(new SortedByValue());
         for (int i = 0; i < game.MaxHandSize; i++)
         {
             player.Hand.Add(game.Board.Deck[0]);

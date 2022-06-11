@@ -77,7 +77,7 @@ public class PlayerRanValue : IPlayer
     private void ChangingMind(Board board)
     {
         //Idea pobre por poner algo
-        if (board.PiecesOnBoard.Count() == 10)
+        if (board.PiecesOnBoard?.Count() == 10)
         {
             this._mode = new PlayerRandom(this.Hand);
         }
