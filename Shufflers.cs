@@ -18,7 +18,7 @@ public class RegularShuffler : IShuffler
         }
     }
 }
-public class SortedShuffler : IShuffler
+public class SortedByLeftShuffler : IShuffler
 {
     public void Shuffle(IGame game)
     {
@@ -30,6 +30,25 @@ public class SortedShuffler : IShuffler
     public void ShufflePlayer(IPlayer player, IGame game)
     {
         game.Board.Deck.Sort(new SortedByLeft());
+        for (int i = 0; i < game.MaxHandSize; i++)
+        {
+            player.Hand.Add(game.Board.Deck[0]);
+            game.Board.Deck.RemoveAt(0);
+        }
+    }
+}
+public class ValueSortedShuffler : IShuffler
+{
+    public void Shuffle(IGame game)
+    {
+        foreach (var item in game.Players)
+        {
+            ShufflePlayer(item, game);
+        }
+    }
+    public void ShufflePlayer(IPlayer player, IGame game)
+    {
+        game.Board.Deck.Sort(new SortedByValue());
         for (int i = 0; i < game.MaxHandSize; i++)
         {
             player.Hand.Add(game.Board.Deck[0]);
