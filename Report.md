@@ -85,7 +85,9 @@ public interface IPlayer
 Son todos los posibles jugadores que pueden haber en el juego. Por ahora nuestra implementación del juego solo dispone de funcionalidad para bots. La propiedad Hand representa todas las fichas que se encuentran en la mano del jugador y el método Play devuelve la ficha que este jugador va a jugar en el tablero y a la vez la quita de la mano del jugador. Por ahora las implementaciones que tenemos de jugadores bots de Domino son:
 
 - El mítico jugador temidos por todos: `BotaGorda` o `PlayerMostValue` para los finos, que siempre jugará la ficha con más valor de su mano
+
 - El `PlayerRandom` que siempre jugará una ficha aleatoria de su mano
+
 - El `PlayerRanValue` o también llamado en los círculos selectos como el `Borracho`, un bot que siempre jugará como BotaGorda menos en ciertas circunstancias (por lo general es que lo llama la mujer)
 
 ## Round
@@ -112,6 +114,7 @@ public interface IHandCounter
 Es una interfaz con implementaciones bastante sencillas de entender. Recibe en su único método un jugador y devuelve la manera en la que la implementación quiere contar el valor de cada ficha de la mano de ese jugador. Por ahora solo tenemos 2 implementaciones de esta interfaz:
 
 - `RegularHandCounter` es la implementación estándar de esta interfaz ya que simplemente devuelve la suma del valor de todas las fichas de la mano de un jugador
+
 - `DoubleDoubleHandCounter` funciona de manera similar a su versión estándar salvo por el hecho de que si la ficha es doble (por doble entender que ambas caras son iguales) su valor se duplica
 
 ## IWinnable
@@ -132,6 +135,7 @@ El método EndCondition recibe como parámetro el juego que se está jugando y d
 El método Winner como su propio nombre indica devuelve al ganador del juego. Por lo menos en nuestras implementaciones, se chequea siempre la propiedad de Won primero, si esta es verdadera entonces significa que el último en jugar fue el que ganó el juego y por tanto se devuelve ese mismo. Si es falsa entonces devuelve el jugador tal que la suma de la puntuación de cada ficha de su mano es la menor. Esta suma se hace acorde con el IHandCounter que tenga el juego. Por ahora las implementaciones que tenemos de esta interfaz son:
 
 - `RegularWinnable` donde gana el jugador que no tenga fichas en su mano
+
 - `DropDoubleBlank` donde gana el jugador que halla jugado la mítica ficha Doble Blanco
 
 ## IRounder
@@ -146,7 +150,9 @@ public interface IRounder
 Esta interfaz es la encargada de decir quien es el siguiente jugador en la cola del juego. No tiene mucha magia, simplemente se llama al final de cada round y varía en dependencia de la implementación. Por ahora las implementaciones que tenemos son:
 
 - `Clockwise` donde se juega en sentido de las manecillas del reloj
+
 - `CounterClockwise`donde se juega en contra de las manecillas del reloj
+
 - `SkipTurn` donde si un jugador se pasa entonces el siguiente en jugar sera el anterior, pero en circunstancias normales funciona en el sentido de las manecillas del reloj
 
 ## IShuffler
@@ -162,7 +168,9 @@ public interface IShuffler
 Es la encargada de repartir las fichas a cada jugador al principio de cada partida. Igual que el anterior este no tiene mucha magia, simplemente se llama al principio de cada partida y depende mucho de la implementación. Por ahora las implementaciones que tenemos son:
 
 - `RegularShuffler` donde se asigna a cada jugador una ficha al azar del mazo del tablero
+
 - `SortedByLeftShuffler` donde se ordena el mazo del tablero de acuerdo al valor de la izquierda de la ficha y siempre se le da al jugador la primera ficha de esa lista y se va quitando
+
 - `SortedByValueShuffler` funciona igual que el anterior pero se ordena por el valor de la ficha
 
 ## Observaciones
