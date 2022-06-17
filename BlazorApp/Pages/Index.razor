@@ -1,0 +1,152 @@
+﻿@page "/"
+
+<PageTitle>Domino</PageTitle>
+
+<BSNav IsTabs="true">
+    <BSNavItem>
+        <TabLabel>Play</TabLabel>
+        <TabContent>
+            <div class="container">
+                <div class="row row-col-3">
+                    <div class="col-3" style="padding-top: 25px;">
+                        <div Class="@BS.Form_Check @BS.Form_Switch">
+                            <BSInputCheckbox CheckedValue="@("on")" @bind-Value="Tournament" style="font-size: 25px;"/>
+                            <BSLabel IsCheckLabel="true" style="font-size: 25px;">Tournament</BSLabel>
+                        </div>
+                    </div>
+                    <div class="col" style="text-align: center; padding-top:100px">
+                        <h1 style="font-size: 50px; padding-bottom: 50px">Domino</h1>
+                        <BSButton Color="BSColor.Primary" style="font-size: 25px;" @onclick="Play">Play</BSButton>
+                    </div>
+                    <div class="col-3">
+                    </div>
+                </div>
+            </div>
+        </TabContent>
+    </BSNavItem>
+
+    <BSNavItem>
+        <TabLabel>Settings</TabLabel>
+        <TabContent>
+            <div class="container">
+                <EditForm Model="@Values" OnValidSubmit="@SaveInfo">
+                    <div class="row row-cols-5">
+                        <div class="col">
+                            <h3>Winnable</h3>
+                            <InputRadioGroup @bind-Value="Values.Winnable">
+                                @foreach (var item in settingsList.Winnables) {
+                                    <div>
+                                        <InputRadio Value="@item.ToString()"/>
+                                        <label>@item.ToString()</label>
+                                    </div>
+                                }
+                            </InputRadioGroup>
+                        </div>
+                        <div class="col">
+                            <h3>Rounder</h3>
+                            <InputRadioGroup @bind-Value="Values.Rounder">
+                                @foreach (var item in settingsList.Rounders) {
+                                    <div>
+                                        <InputRadio Value="@item.ToString()"/>
+                                        <label>@item.ToString()</label>
+                                    </div>
+                                }
+                            </InputRadioGroup>
+                        </div>
+                        <div class="col">
+                            <h3>Shuffler</h3>
+                            <InputRadioGroup @bind-Value="Values.Shuffler">
+                                @foreach (var item in settingsList.Shufflers) {
+                                    <div>
+                                        <InputRadio Value="@item.ToString()"/>
+                                        <label>@item.ToString()</label>
+                                    </div>
+                                }
+                            </InputRadioGroup>
+                        </div>
+                        <div class="col">
+                            <h3>HandCounter</h3>
+                            <InputRadioGroup @bind-Value="Values.HandCounter">
+                                @foreach (var item in settingsList.HandCounters) {
+                                    <div>
+                                        <InputRadio Value="@item.ToString()"/>
+                                        <label>@item.ToString()</label>
+                                    </div>
+                                }
+                            </InputRadioGroup>
+                        </div>
+                        <div class="col">
+                            <h3>Board</h3>
+                            <InputRadioGroup @bind-Value="Values.Board">
+                                @foreach (var item in settingsList.Boards) {
+                                    <div>
+                                        <InputRadio Value="@item.ToString()"/>
+                                        <label>@item.ToString()</label>
+                                    </div>
+                                    }
+                            </InputRadioGroup>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top: 50px;">
+                        <div class="col" style="text-align: center;">
+                            <button class= "btn btn-primary" type="submit">Save</button>
+                        </div>
+                    </div>
+                </EditForm>
+            </div>
+            
+        </TabContent>
+    </BSNavItem>
+
+    <BSNavItem>
+        <TabLabel>Help</TabLabel>
+        <TabContent>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h1>Domino</h1>
+                    </div>
+                </div>
+            </div>
+        </TabContent>
+    </BSNavItem>
+</BSNav>
+
+
+
+@code {
+
+    #region Play
+        private string? Tournament{get;set;}
+
+    #endregion
+
+    #region Settings
+
+    //Problema con las instancias (InstanceSettings(Viene de atras el problema por meterlo en un array)) 
+    //me hace falta que me devuela instancias nuevas cada vez que se llame,
+    //no que busque una en un array porque tranajara con la misma y no se puede aplicar al torneo
+        public InstancesSettings? instancesSettings{get;set;}
+        public Value Values{get; set;} = new ();
+        private SettingsList settingsList{ get;} = new SettingsList();
+
+        private void SaveInfo()
+        {
+            instancesSettings = new InstancesSettings(Values);
+            
+            Values.GetEmpty();
+        }
+        private void Play()
+        {
+            if(TournamentClass.IsTournament(Tournament))
+            {
+                //GameObject[] games =
+            }
+            else
+            {
+                
+            }
+
+        }
+    #endregion
+}

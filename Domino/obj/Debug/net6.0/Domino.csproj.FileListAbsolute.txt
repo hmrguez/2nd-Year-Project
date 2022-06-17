@@ -1,0 +1,12 @@
+/home/sebastian/Universidad/ProyectoBlazor/GiTrep/Domino/bin/Debug/net6.0/Domino.deps.json
+/home/sebastian/Universidad/ProyectoBlazor/GiTrep/Domino/bin/Debug/net6.0/Domino.dll
+/home/sebastian/Universidad/ProyectoBlazor/GiTrep/Domino/bin/Debug/net6.0/Domino.pdb
+/home/sebastian/Universidad/ProyectoBlazor/GiTrep/Domino/obj/Debug/net6.0/Domino.csproj.AssemblyReference.cache
+/home/sebastian/Universidad/ProyectoBlazor/GiTrep/Domino/obj/Debug/net6.0/Domino.GeneratedMSBuildEditorConfig.editorconfig
+/home/sebastian/Universidad/ProyectoBlazor/GiTrep/Domino/obj/Debug/net6.0/Domino.AssemblyInfoInputs.cache
+/home/sebastian/Universidad/ProyectoBlazor/GiTrep/Domino/obj/Debug/net6.0/Domino.AssemblyInfo.cs
+/home/sebastian/Universidad/ProyectoBlazor/GiTrep/Domino/obj/Debug/net6.0/Domino.csproj.CoreCompileInputs.cache
+/home/sebastian/Universidad/ProyectoBlazor/GiTrep/Domino/obj/Debug/net6.0/Domino.dll
+/home/sebastian/Universidad/ProyectoBlazor/GiTrep/Domino/obj/Debug/net6.0/refint/Domino.dll
+/home/sebastian/Universidad/ProyectoBlazor/GiTrep/Domino/obj/Debug/net6.0/Domino.pdb
+/home/sebastian/Universidad/ProyectoBlazor/GiTrep/Domino/obj/Debug/net6.0/ref/Domino.dll
