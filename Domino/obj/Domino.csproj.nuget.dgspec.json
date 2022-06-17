@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/sebastian/Universidad/ProyectoBlazor/GiTrep/Domino/Domino.csproj": {}
+    "C:\\Users\\vekt0R\\Documents\\Personal chest\\Tutoriales Programacion\\2do\\Domino\\Domino\\Domino.csproj": {}
   },
   "projects": {
-    "/home/sebastian/Universidad/ProyectoBlazor/GiTrep/Domino/Domino.csproj": {
+    "C:\\Users\\vekt0R\\Documents\\Personal chest\\Tutoriales Programacion\\2do\\Domino\\Domino\\Domino.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/sebastian/Universidad/ProyectoBlazor/GiTrep/Domino/Domino.csproj",
+        "projectUniqueName": "C:\\Users\\vekt0R\\Documents\\Personal chest\\Tutoriales Programacion\\2do\\Domino\\Domino\\Domino.csproj",
         "projectName": "Domino",
-        "projectPath": "/home/sebastian/Universidad/ProyectoBlazor/GiTrep/Domino/Domino.csproj",
-        "packagesPath": "/home/sebastian/.nuget/packages/",
-        "outputPath": "/home/sebastian/Universidad/ProyectoBlazor/GiTrep/Domino/obj/",
+        "projectPath": "C:\\Users\\vekt0R\\Documents\\Personal chest\\Tutoriales Programacion\\2do\\Domino\\Domino\\Domino.csproj",
+        "packagesPath": "C:\\Users\\vekt0R\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vekt0R\\Documents\\Personal chest\\Tutoriales Programacion\\2do\\Domino\\Domino\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/sebastian/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\vekt0R\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -52,7 +52,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.300/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
