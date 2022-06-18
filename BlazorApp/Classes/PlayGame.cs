@@ -12,10 +12,6 @@ public class PlayGame
 
             Piece? piece = game.CurrentPlayer.Play(game.Changes.Board);
 
-            //Suscribirse al evento
-            //if(piece==null)
-            //game.OnPlayerPassed
-
             if(piece != null)
             {
                 if(game.Changes.Board.PiecesOnBoard.Count() == 0)

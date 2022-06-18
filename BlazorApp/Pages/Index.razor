@@ -1,10 +1,11 @@
 ﻿@page "/"
 
+
 <PageTitle>Domino</PageTitle>
 
 <BSNav IsTabs="true">
     <BSNavItem>
-        <TabLabel>Play</TabLabel>
+        <TabLabel><span class="oi oi-play-circle"></span> Play</TabLabel>
         <TabContent>
             <div class="container">
                 <div class="row row-col-3">
@@ -14,30 +15,64 @@
                             <BSLabel IsCheckLabel="true" style="font-size: 25px;">Tournament</BSLabel>
                         </div>
                     </div>
-                    <div class="col" style="text-align: center; padding-top:100px">
-                        <h1 style="font-size: 50px; padding-bottom: 50px">Domino</h1>
+                    <div class="col" style="text-align: center; padding-top: 150px">
+                        <h1 style="font-size: 50px; padding-bottom: 10px">Domino</h1>
                         <BSButton Color="BSColor.Primary" style="font-size: 25px;" @onclick="Play">Play</BSButton>
                     </div>
-                    <div class="col-3">
+                    <div class="col-3" style="padding-top: 25px;">
                     </div>
                 </div>
             </div>
+            @* <div class="container">
+                    <div class="row">
+                        <div class="col-8">
+                            <textarea disabled = "true">
+                                @foreach (var game in Games)
+                                {
+                                    @foreach (var plays in game.Rounds)
+                                    {
+                                        @if(plays.Piece!=null){
+                                            <p class="text-center">@plays.Piece.ToString()</p>
+                                        }
+                                    }
+                                }
+                            </textarea>
+                        </div>
+                        <div class="col-4">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Player</th>
+                                        <th scope="col">Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    //Mostrar los players con sus Scores
+                                    @foreach (var item in collection)
+                                    {
+                                        
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div> *@
         </TabContent>
     </BSNavItem>
 
     <BSNavItem>
-        <TabLabel>Settings</TabLabel>
+        <TabLabel><span class="oi oi-cog"></span> Settings</TabLabel>
         <TabContent>
-            <div class="container">
-                <EditForm Model="@Values" OnValidSubmit="@SaveInfo">
+            <div class="container" style="padding-top: 20px;">
+                <EditForm Model="@Values">
                     <div class="row row-cols-5">
                         <div class="col">
                             <h3>Winnable</h3>
                             <InputRadioGroup @bind-Value="Values.Winnable">
                                 @foreach (var item in settingsList.Winnables) {
                                     <div>
-                                        <InputRadio Value="@item.ToString()"/>
-                                        <label>@item.ToString()</label>
+                                        <input id="@item.ToString()" name="radioWin" type="radio" value="@item.ToString()"/>
+                                        <label for="@item.ToString()">@item.ToString()</label>
                                     </div>
                                 }
                             </InputRadioGroup>
@@ -47,8 +82,8 @@
                             <InputRadioGroup @bind-Value="Values.Rounder">
                                 @foreach (var item in settingsList.Rounders) {
                                     <div>
-                                        <InputRadio Value="@item.ToString()"/>
-                                        <label>@item.ToString()</label>
+                                        <input id="@item.ToString()" name="radioRounder" type="radio" value="@item.ToString()"/>
+                                        <label for="@item.ToString()">@item.ToString()</label>
                                     </div>
                                 }
                             </InputRadioGroup>
@@ -58,8 +93,8 @@
                             <InputRadioGroup @bind-Value="Values.Shuffler">
                                 @foreach (var item in settingsList.Shufflers) {
                                     <div>
-                                        <InputRadio Value="@item.ToString()"/>
-                                        <label>@item.ToString()</label>
+                                        <input id="@item.ToString()" name="radioShuffler" type="radio" value="@item.ToString()"/>
+                                        <label for="@item.ToString()">@item.ToString()</label>
                                     </div>
                                 }
                             </InputRadioGroup>
@@ -69,8 +104,8 @@
                             <InputRadioGroup @bind-Value="Values.HandCounter">
                                 @foreach (var item in settingsList.HandCounters) {
                                     <div>
-                                        <InputRadio Value="@item.ToString()"/>
-                                        <label>@item.ToString()</label>
+                                        <input id="@item.ToString()" name="radioHand" type="radio" value="@item.ToString()"/>
+                                        <label for="@item.ToString()">@item.ToString()</label>
                                     </div>
                                 }
                             </InputRadioGroup>
@@ -80,10 +115,10 @@
                             <InputRadioGroup @bind-Value="Values.Board">
                                 @foreach (var item in settingsList.Boards) {
                                     <div>
-                                        <InputRadio Value="@item.ToString()"/>
-                                        <label>@item.ToString()</label>
+                                        <input id="@item.ToString()" name="radioBoards" type="radio" value="@item.ToString()"/>
+                                        <label for="@item.ToString()">@item.ToString()</label>
                                     </div>
-                                    }
+                                }
                             </InputRadioGroup>
                         </div>
                     </div>
@@ -99,7 +134,7 @@
     </BSNavItem>
 
     <BSNavItem>
-        <TabLabel>Help</TabLabel>
+        <TabLabel><span class="oi oi-question-mark"></span> Help</TabLabel>
         <TabContent>
             <div class="container">
                 <div class="row">
@@ -117,36 +152,31 @@
 @code {
 
     #region Play
-        private string? Tournament{get;set;}
+        private string? Tournament {get;set;}
+        private GameObject[]? Games {get;set;}
+
+        private void Play()
+        {
+            ChangedThings changes = new ChangedThings(Values.GetBoard()!, Values.GetWinnable()!, Values.GetRounder()!, 
+                                                        Values.GetShuffler()!, Values.GetHandCounter()!);
+
+            if(TournamentClass.IsTournament(Tournament!))
+            {
+                Games = MakingGame.MakingGames(changes, 3);
+                TournamentClass.PlayTournament(Games, new PlayGame());
+            }
+            else
+            {
+                Games = MakingGame.MakingGames(changes, 1);
+                TournamentClass.PlayTournament(Games, new PlayGame());
+            }
+        }
 
     #endregion
 
     #region Settings
-
-    //Problema con las instancias (InstanceSettings(Viene de atras el problema por meterlo en un array)) 
-    //me hace falta que me devuela instancias nuevas cada vez que se llame,
-    //no que busque una en un array porque tranajara con la misma y no se puede aplicar al torneo
-        public InstancesSettings? instancesSettings{get;set;}
         public Value Values{get; set;} = new ();
         private SettingsList settingsList{ get;} = new SettingsList();
 
-        private void SaveInfo()
-        {
-            instancesSettings = new InstancesSettings(Values);
-            
-            Values.GetEmpty();
-        }
-        private void Play()
-        {
-            if(TournamentClass.IsTournament(Tournament))
-            {
-                //GameObject[] games =
-            }
-            else
-            {
-                
-            }
-
-        }
     #endregion
 }

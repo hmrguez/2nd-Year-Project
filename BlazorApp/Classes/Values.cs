@@ -2,11 +2,11 @@ using Domino;
 
 public class Value
 {
-    public string? Winnable { get; set; }
-    public string? Rounder { get; set; }
-    public string? Shuffler{get;set;}
-    public string? HandCounter{get;set;}
-    public string? Board{get;set;}
+    public string? Winnable { get; set; } = Utils.GetWinnables().First().GetType().Name;
+    public string? Rounder { get; set; } = Utils.GetRounders().First().GetType().Name;
+    public string? Shuffler{get;set;} = Utils.GetShufflers().First().GetType().Name;
+    public string? HandCounter{get;set;} = Utils.GetHandCounters().First().GetType().Name;
+    public string? Board{get;set;} = Utils.GetBoards().First().GetType().Name;
 
     public void GetEmpty()
     {
@@ -18,33 +18,28 @@ public class Value
     } 
     public IWinnable? GetWinnable()
     {
-        if (string.IsNullOrEmpty(Winnable))
-            return default;
-        return Utils.GetWinnables().FirstOrDefault(p => p.GetType().Name == Winnable);
+        Type? t = typeof(IWinnable).Assembly.GetTypes().FirstOrDefault(p => p.Name == Winnable);
+        return Activator.CreateInstance(t!) as IWinnable;
     }
     public IRounder? GetRounder()
     {
-        if (string.IsNullOrEmpty(Rounder))
-            return default;
-        return Utils.GetRounders().FirstOrDefault(p => p.GetType().Name == Rounder);
+        Type? t = typeof(IRounder).Assembly.GetTypes().FirstOrDefault(p => p.Name == Rounder);
+        return Activator.CreateInstance(t!) as IRounder;
     }
     public IShuffler? GetShuffler()
     {
-        if (string.IsNullOrEmpty(Shuffler))
-            return default;
-        return Utils.GetShufflers().FirstOrDefault(p => p.GetType().Name == Shuffler);
+        Type? t = typeof(IShuffler).Assembly.GetTypes().FirstOrDefault(p => p.Name == Shuffler);
+        return Activator.CreateInstance(t!) as IShuffler;
     }
     public IHandCounter? GetHandCounter()
     {
-        if (string.IsNullOrEmpty(HandCounter))
-            return default;
-        return Utils.GetHandCounters().FirstOrDefault(p => p.GetType().Name == HandCounter);
+        Type? t = typeof(IHandCounter).Assembly.GetTypes().FirstOrDefault(p => p.Name == HandCounter);
+        return Activator.CreateInstance(t!) as IHandCounter;
     }
     public Board? GetBoard()
     {
-        if (string.IsNullOrEmpty(Board))
-            return default;
-        return Utils.GetBoards().FirstOrDefault(p => p.GetType().Name == Board);
+        Type? t = typeof(Board).Assembly.GetTypes().FirstOrDefault(p => p.Name == Board);
+        return Activator.CreateInstance(t!) as Board;
     }
     
 }
