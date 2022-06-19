@@ -3,23 +3,19 @@ using Domino;
 
 public class TournamentClass
 {
-    public GameObject[] Games{ get; private set;}
-    public TournamentClass(GameObject[] games)
+    public static bool IsTournament(string tournamnet)
     {
-        Games = games;
-    }
-    public static bool IsTournament(string tournamnet){
-        if(string.IsNullOrEmpty(tournamnet))
+        if (string.IsNullOrEmpty(tournamnet))
             return false;
         else
             return true;
     }
-    public void PlayTournament(PlayGame single)
+    public static void PlayTournament(GameObject[] games, PlayGame single)
     {
         int count = 0;
-        while (count < Games.Length)
+        while (count < games.Length)
         {
-            single.PlaySingleGame(Games[count++]);
+            single.PlaySingleGame(games[count++]);
         }
     }
 }

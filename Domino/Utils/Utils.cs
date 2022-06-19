@@ -22,4 +22,6 @@ public static class Utils
     public static IRounder[] GetRounders() => new IRounder[] { new Clockwise(), new CounterClockWise(), new SkipTurn() };
     public static Board[] GetBoards() => new Board[] { new RegularBoard(9), new DoubleEvenBoard(12) };
     public static IHandCounter[] GetHandCounters() => new IHandCounter[] { new RegularHandCounter(), new DoubleDoubleHandCounter() };
+    public static IPlayer[] GetPlayers()=> new IPlayer[]{new PlayerRandom(), new PlayerMostValue(new SortedByValue()), new PlayerRandomValue(new SortedByValue())};
+    //Player necesitan comparer
 }
