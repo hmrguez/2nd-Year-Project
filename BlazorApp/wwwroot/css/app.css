@@ -6,7 +6,8 @@
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
+    background-color: #27282c;
+    color: #fff;
 }
 
 h1:focus {
@@ -70,6 +71,7 @@ a, .btn-link {
 
 
 .btn-main{
+    font-weight: bolder;
     justify-content: center;
     position: relative; 
     background: #fff;
@@ -137,4 +139,49 @@ a, .btn-link {
 }
 .col{
     justify-content: center;
+    z-index: 1;
 }
+.col-3{
+    z-index: 1;
+}
+.containerr{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+.bubbles{
+    position: relative;
+    display: flex;
+    z-index: 0;
+}
+.bubbles span{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background-color: #4fc3dc;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #4fc3dc44, 
+    0 0 50px #4fc3dc,
+    0 0 100px #4fc3dc;
+    animation: animate 15s linear infinite; 
+    animation-duration: calc(180s/var(--i));
+}
+.bubbles span:nth-child(even){
+    background-color: #ff2d75;
+    box-shadow: 0 0 0 10px #ff2d7544, 
+    0 0 50px #ff2d75,
+    0 0 100px #ff2d75;
+}
+
+@keyframes animate{
+    0%{
+        transform: translateY(100vh) scale(0);
+    }
+    100%{
+        transform: translateY(-10vh) scale(1);
+    }
+}
+
+
