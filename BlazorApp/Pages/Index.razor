@@ -10,14 +10,14 @@
             <div class="container">
                 <div class="row row-col-3">
                     <div class="col-3" style="padding-top: 25px;">
-                        <div Class="@BS.Form_Check @BS.Form_Switch">
+                        <div  Class="@BS.Form_Check @BS.Form_Switch">
                             <BSInputCheckbox CheckedValue="@("on")" @bind-Value="Tournament" style="font-size: 25px;"/>
                             <BSLabel IsCheckLabel="true" style="font-size: 25px;">Tournament</BSLabel>
                         </div>
                     </div>
                     <div class="col" style="text-align: center; padding-top: 150px">
                         <h1 style="font-size: 50px; padding-bottom: 10px">Domino</h1>
-                        <BSButton Color="BSColor.Primary" style="font-size: 25px;" @onclick="Play">Play</BSButton>
+                        <BSButton class="btn-main" Color="BSColor.Primary" style="font-size: 25px;" @onclick="Play"><span>Play</span><i></i></BSButton>
                     </div>
                     <div class="col-3" style="padding-top: 25px;">
                     </div>
@@ -124,7 +124,7 @@
                     </div>
                     <div class="row" style="padding-top: 50px;">
                         <div class="col" style="text-align: center;">
-                            <button class= "btn btn-primary" type="submit">Save</button>
+                            <button class= "btn-main" type="submit"><span>Save</span><i></i></button>
                         </div>
                     </div>
                 </EditForm>

@@ -1,7 +1,12 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
+:root{
+    --clr: #1b6ec2;
+}
+
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
 }
 
 h1:focus {
@@ -62,3 +67,74 @@ a, .btn-link {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+
+
+.btn-main{
+    justify-content: center;
+    position: relative; 
+    background: #fff;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    padding: 10px 30px;
+    transition: 0.5s;
+    border: none;
+    border-radius: 5px;
+}
+.btn-main:hover{
+    letter-spacing: 0.25em;
+    color: var(--clr);
+    background: var(--clr);
+    box-shadow: 0 0 35px var(--clr);
+}
+.btn-main::before{
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: #27282c;
+}
+.btn-main span{
+    position: relative;
+    z-index: 1;
+}
+.btn-main i{
+    position: absolute;
+    inset: 0;
+    display: block;
+}
+.btn-main i::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 80%;
+    width: 10px;
+    height: 4px;
+    background-color: #27282c;
+    transform: translateX(-50%) skewX(325deg);
+    transition: 0.5s;
+}
+.btn-main:hover i::before{
+    width: 20px;
+    left: 20%;
+}
+.btn-main i::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 80%;
+    width: 10px;
+    height: 4px;
+    background-color: #27282c;
+    transform: translateX(-50%) skewX(325deg);
+    transition: 0.5s;
+}
+.btn-main:hover i::after{
+    width: 20px;
+    right: 20%;
+}
+.col{
+    justify-content: center;
+}

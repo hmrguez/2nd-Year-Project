@@ -11,7 +11,7 @@ public class RegularShuffler : BaseShuffler
         Random random = new();
         for (int i = 0; i < maxHandSize; i++)
         {
-            int x = random.Next(board.Deck.Count);
+            int x = random.Next(board.Deck!.Count);
             Piece piece = board.Deck[x];
             player.Hand.Add(piece);
             board.Deck.Remove(piece);
