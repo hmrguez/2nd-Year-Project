@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vekt0R\\Documents\\Personal chest\\Tutoriales Programacion\\2do\\Domino\\Domino\\Domino.csproj",
+      "projectUniqueName": "C:\\Users\\vekt0R\\Documents\\Personal chest\\Tutoriales Programacion\\2do\\2nd-Year-Project\\Domino\\Domino.csproj",
       "projectName": "Domino",
-      "projectPath": "C:\\Users\\vekt0R\\Documents\\Personal chest\\Tutoriales Programacion\\2do\\Domino\\Domino\\Domino.csproj",
+      "projectPath": "C:\\Users\\vekt0R\\Documents\\Personal chest\\Tutoriales Programacion\\2do\\2nd-Year-Project\\Domino\\Domino.csproj",
       "packagesPath": "C:\\Users\\vekt0R\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vekt0R\\Documents\\Personal chest\\Tutoriales Programacion\\2do\\Domino\\Domino\\obj\\",
+      "outputPath": "C:\\Users\\vekt0R\\Documents\\Personal chest\\Tutoriales Programacion\\2do\\2nd-Year-Project\\Domino\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\vekt0R\\AppData\\Roaming\\NuGet\\NuGet.Config"

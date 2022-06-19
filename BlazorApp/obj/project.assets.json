@@ -1664,19 +1664,19 @@
     ]
   },
   "packageFolders": {
-    "/home/sebastian/.nuget/packages/": {}
+    "C:\\Users\\vekt0R\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/sebastian/Universidad/ProyectoBlazor/GiTrep/BlazorApp/BlazorApp.csproj",
+      "projectUniqueName": "C:\\Users\\vekt0R\\Documents\\Personal chest\\Tutoriales Programacion\\2do\\2nd-Year-Project\\BlazorApp\\BlazorApp.csproj",
       "projectName": "BlazorApp",
-      "projectPath": "/home/sebastian/Universidad/ProyectoBlazor/GiTrep/BlazorApp/BlazorApp.csproj",
-      "packagesPath": "/home/sebastian/.nuget/packages/",
-      "outputPath": "/home/sebastian/Universidad/ProyectoBlazor/GiTrep/BlazorApp/obj/",
+      "projectPath": "C:\\Users\\vekt0R\\Documents\\Personal chest\\Tutoriales Programacion\\2do\\2nd-Year-Project\\BlazorApp\\BlazorApp.csproj",
+      "packagesPath": "C:\\Users\\vekt0R\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\vekt0R\\Documents\\Personal chest\\Tutoriales Programacion\\2do\\2nd-Year-Project\\BlazorApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/sebastian/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\vekt0R\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -1688,8 +1688,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/home/sebastian/Universidad/ProyectoBlazor/GiTrep/Domino/Domino.csproj": {
-              "projectPath": "/home/sebastian/Universidad/ProyectoBlazor/GiTrep/Domino/Domino.csproj"
+            "C:\\Users\\vekt0R\\Documents\\Personal chest\\Tutoriales Programacion\\2do\\2nd-Year-Project\\Domino\\Domino.csproj": {
+              "projectPath": "C:\\Users\\vekt0R\\Documents\\Personal chest\\Tutoriales Programacion\\2do\\2nd-Year-Project\\Domino\\Domino.csproj"
             }
           }
         }
@@ -1731,7 +1731,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-            "version": "[6.0.5, 6.0.5]"
+            "version": "[6.0.0, 6.0.0]"
           }
         ],
         "frameworkReferences": {
@@ -1739,7 +1739,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.300/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {
