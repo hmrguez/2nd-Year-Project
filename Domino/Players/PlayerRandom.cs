@@ -4,7 +4,7 @@ public class PlayerRandom : BasePlayer
 {
     public PlayerRandom()
     {
-        Hand = new HandPieces<Piece>();
+        Hand = new();
     }
     public override Piece Play(Board board)
     {

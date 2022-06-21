@@ -2,7 +2,7 @@ namespace Domino;
 
 public interface IPlayer
 {
-    public HandPieces<Piece> Hand { get; }
+    public List<Piece> Hand { get; }
     public Piece Play(Board board);
 }
 

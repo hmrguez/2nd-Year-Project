@@ -829,9 +829,14 @@
 /home/sebastian/Universidad/ProyectoBlazor/GiTrep/BlazorApp/obj/Debug/net6.0/refint/BlazorApp.dll
 /home/sebastian/Universidad/ProyectoBlazor/GiTrep/BlazorApp/obj/Debug/net6.0/BlazorApp.pdb
 /home/sebastian/Universidad/ProyectoBlazor/GiTrep/BlazorApp/obj/Debug/net6.0/ref/BlazorApp.dll
+C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\blazor.boot.json
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\blazor.webassembly.js
+C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\BlazorApp.dll
+C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\BlazorApp.pdb
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\BlazorComponentUtilities.dll
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\BlazorStrap.dll
+C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\Domino.dll
+C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\Domino.pdb
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\dotnet.6.0.0.qwgcsrf9on.js
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\dotnet.timezones.blat
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\dotnet.wasm
@@ -1130,6 +1135,7 @@ C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Pr
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\System.Xml.XPath.XDocument.dll.gz
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\blazor.webassembly.js.gz
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\System.Resources.Writer.dll.gz
+C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\BlazorApp.dll.gz
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\System.Core.dll.gz
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\System.Memory.dll.gz
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\System.Transactions.dll.gz
@@ -1147,6 +1153,7 @@ C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Pr
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\dotnet.6.0.0.qwgcsrf9on.js.gz
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\BlazorStrap.dll.gz
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\Microsoft.Extensions.DependencyInjection.dll.gz
+C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\BlazorApp.pdb.gz
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\netstandard.dll.gz
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\System.Xml.XmlSerializer.dll.gz
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\Microsoft.Extensions.DependencyInjection.Abstractions.dll.gz
@@ -1182,6 +1189,7 @@ C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Pr
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\System.Net.WebProxy.dll.gz
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\System.Security.AccessControl.dll.gz
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\System.Text.Encodings.Web.dll.gz
+C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\Domino.dll.gz
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\Microsoft.Extensions.Configuration.dll.gz
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\System.Runtime.Intrinsics.dll.gz
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\System.Threading.Channels.dll.gz
@@ -1225,17 +1233,9 @@ C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Pr
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\System.Runtime.InteropServices.dll.gz
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\Microsoft.Extensions.FileProviders.Abstractions.dll.gz
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\System.IO.Compression.Brotli.dll.gz
+C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\Domino.pdb.gz
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\System.IO.Compression.FileSystem.dll.gz
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\System.Dynamic.Runtime.dll.gz
-C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\blazor.boot.json
-C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\BlazorApp.dll
-C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\BlazorApp.pdb
-C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\Domino.dll
-C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\Domino.pdb
-C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\BlazorApp.dll.gz
-C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\BlazorApp.pdb.gz
-C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\Domino.dll.gz
-C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\wwwroot\_framework\Domino.pdb.gz
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\BlazorApp.staticwebassets.runtime.json
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\BlazorApp.dll
 C:\Users\vekt0R\Documents\Personal chest\Tutoriales Programacion\2do\2nd-Year-Project\BlazorApp\bin\Debug\net6.0\ref\BlazorApp.dll

@@ -5,7 +5,7 @@ public class PlayerMostValue : BasePlayer
     private IComparer<Piece>? _comparer;
     public PlayerMostValue(IComparer<Piece> comparer)
     {
-        this.Hand = new HandPieces<Piece>();
+        this.Hand = new();
         this._comparer = comparer;
     }
     public override Piece Play(Board board)

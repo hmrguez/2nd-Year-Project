@@ -4,7 +4,7 @@ public class RegularBoard : Board
 {
     public RegularBoard(int maxInput)
     {
-        this.PiecesOnBoard = new Table<Piece>();
+        this.PiecesOnBoard = new ();
         this.Deck = Generate(maxInput);
     }
     protected override List<Piece> Generate(int maximumInput)
