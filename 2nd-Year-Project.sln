@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domino", "Domino\Domino.csproj", "{3E7CE455-1B6B-4B4E-93D3-6D56DF2289E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp", "BlazorApp\BlazorApp.csproj", "{063D0882-0885-425C-8757-9F7C7D3E8075}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E7CE455-1B6B-4B4E-93D3-6D56DF2289E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E7CE455-1B6B-4B4E-93D3-6D56DF2289E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E7CE455-1B6B-4B4E-93D3-6D56DF2289E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E7CE455-1B6B-4B4E-93D3-6D56DF2289E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94BA0816-0E00-47A4-9AFF-C3B5CDA9A125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94BA0816-0E00-47A4-9AFF-C3B5CDA9A125}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94BA0816-0E00-47A4-9AFF-C3B5CDA9A125}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94BA0816-0E00-47A4-9AFF-C3B5CDA9A125}.Release|Any CPU.Build.0 = Release|Any CPU
+		{063D0882-0885-425C-8757-9F7C7D3E8075}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{063D0882-0885-425C-8757-9F7C7D3E8075}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{063D0882-0885-425C-8757-9F7C7D3E8075}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{063D0882-0885-425C-8757-9F7C7D3E8075}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
