@@ -1,17 +1,16 @@
 namespace Domino;
 
-public class PlayerRandom : IPlayer
+public class PlayerRandom : BasePlayer
 {
-    public List<Piece> Hand { get; set; }
 
     public PlayerRandom()
     {
         Hand = new();
     }
-    public Piece Play(Board board)
+    public override Piece Play(Board board)
     {
         Random random = new Random();
-        var possiblePieces = Hand.Where(x=>x.CanPlay(board));
+        var possiblePieces = GetPossiblePieces(board);
         
         if(possiblePieces.Any()){
             Piece piece;
@@ -23,7 +22,7 @@ public class PlayerRandom : IPlayer
 
             return piece;
         }
-        return null;
+        return null!;
     }
     
 }

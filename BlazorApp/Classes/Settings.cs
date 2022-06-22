@@ -3,11 +3,11 @@ using Domino;
 public class SettingsList
 {
 
-    public IWinnable[] Winnables { get; }
-    public IRounder[] Rounders { get; }
-    public IShuffler[] Shufflers { get; }
-    public IHandCounter[] HandCounters { get; }
-    public Board[] Boards{get;}
+    public string[] Winnables { get; }
+    public string[] Rounders { get; }
+    public string[] Shufflers { get; }
+    public string[] HandCounters { get; }
+    public string[] Boards{get;}
 
     public SettingsList()
     {

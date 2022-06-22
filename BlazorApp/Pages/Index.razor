@@ -7,7 +7,7 @@
     <BSNavItem>
         <TabLabel><span class="oi oi-play-circle"></span> Play</TabLabel>
         <TabContent>
-            <div class="container">
+            <div class="container @(Playing ? "d-none" : "")">
                 <div class="row row-col-3">
                     <div class="col-3" style="padding-top: 25px;">
                         <div  Class="@BS.Form_Check @BS.Form_Switch">
@@ -17,28 +17,24 @@
                     </div>
                     <div class="col" style="text-align: center; padding-top: 150px">
                         <h1 class="btn-main"><span>Domino</span><i></i></h1>
-                        <BSButton class="btn-main" Color="BSColor.Primary" style="font-size: 25px;" @onclick="Play"><span>Play</span><i></i></BSButton>
+                        <BSButton class="btn-main" Color="BSColor.Primary" style="font-size: 25px;" @onclick="@Play"><span>Play</span><i></i></BSButton>
                     </div>
                     <div class="col-3" style="padding-top: 25px;">
                     </div>
                 </div>
             </div>
-            @* <div class="container">
-                    <div class="row">
-                        <div class="col-8">
-                            <textarea disabled = "true">
-                                @foreach (var game in Games)
-                                {
-                                    @foreach (var plays in game.Rounds)
-                                    {
-                                        @if(plays.Piece!=null){
-                                            <p class="text-center">@plays.Piece.ToString()</p>
-                                        }
-                                    }
-                                }
-                            </textarea>
-                        </div>
-                        <div class="col-4">
+            <div class="container @(!Playing ? "d-none" : "")">
+                <div class="row">
+                    <button type="button" class="btn btn-primary" @onclick="@PiecesOnBoard">ShowPlays</button>
+                    <h1>Winner: @Winner</h1>
+                    <h2>Game: @Count</h2>
+                </div>
+                <div class="row">
+                    <div class="col-8">
+                        <p>@PiecesBoard</p>
+                    </div>
+                    <div class="col-4">
+                        @if(Table != null){
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -47,16 +43,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    //Mostrar los players con sus Scores
-                                    @foreach (var item in collection)
+                                    @foreach (var item in Table)
                                     {
-                                        
+                                        <tr>
+                                            <td>@item.Key.ToString()</td>
+                                            <td>@item.Value.ToString()</td>
+                                        </tr>
                                     }
                                 </tbody>
                             </table>
-                        </div>
+                        }
                     </div>
-                </div> *@
+                </div>
+            </div> 
         </TabContent>
     </BSNavItem>
 
@@ -64,60 +63,114 @@
         <TabLabel><span class="oi oi-cog"></span> Settings</TabLabel>
         <TabContent>
             <div class="container" style="padding-top: 20px;">
-                <EditForm Model="@Values">
+                <EditForm Model="@Values" OnSubmit="@Save">
                     <div class="row row-cols-5">
                         <div class="col">
                             <h3>Winnable</h3>
                             <InputRadioGroup @bind-Value="Values.Winnable">
-                                @foreach (var item in settingsList.Winnables) {
-                                    <div>
-                                        <input id="@item.ToString()" name="radioWin" type="radio" value="@item.ToString()"/>
-                                        <label for="@item.ToString()">@item.ToString()</label>
-                                    </div>
+                                @{
+                                    bool isFirstChecked = true;
+                                    @foreach (var item in settingsList.Winnables) {
+                                        <div>
+                                            @if(isFirstChecked)
+                                            {
+                                                isFirstChecked=false;
+                                                <input type="radio" id="@item" name="radioWin" value="@item" checked/>
+                                                <label for="@item">@item</label>
+                                            }else{
+                                                <input type="radio" id="@item" name="radioWin" value="@item"/>
+                                                <label for="@item">@item</label>
+                                            }
+                                        </div>
+                                    }
                                 }
                             </InputRadioGroup>
                         </div>
                         <div class="col">
                             <h3>Rounder</h3>
                             <InputRadioGroup @bind-Value="Values.Rounder">
-                                @foreach (var item in settingsList.Rounders) {
-                                    <div>
-                                        <input id="@item.ToString()" name="radioRounder" type="radio" value="@item.ToString()"/>
-                                        <label for="@item.ToString()">@item.ToString()</label>
-                                    </div>
+                                 @{
+                                    bool isFirstChecked = true;
+                                    @foreach (var item in settingsList.Rounders) {
+                                        <div>
+                                            @if(isFirstChecked)
+                                            {
+                                                isFirstChecked=false;
+                                                <input type="radio" id="@item" name="radioRounder" value="@item" checked/>
+                                                <label for="@item">@item</label>
+                                            }else{
+                                                <input type="radio" id="@item" name="radioRounder" value="@item"/>
+                                                <label for="@item">@item</label>
+                                            }
+                                            
+                                        </div>
+                                    }
                                 }
                             </InputRadioGroup>
                         </div>
                         <div class="col">
                             <h3>Shuffler</h3>
                             <InputRadioGroup @bind-Value="Values.Shuffler">
-                                @foreach (var item in settingsList.Shufflers) {
-                                    <div>
-                                        <input id="@item.ToString()" name="radioShuffler" type="radio" value="@item.ToString()"/>
-                                        <label for="@item.ToString()">@item.ToString()</label>
-                                    </div>
+                                 @{
+                                    bool isFirstChecked = true;
+                                    @foreach (var item in settingsList.Shufflers) {
+                                        <div>
+                                            @if(isFirstChecked)
+                                            {
+                                                isFirstChecked=false;
+                                                <input type="radio" id="@item" name="radioShuffler" value="@item" checked/>
+                                                <label for="@item">@item</label>
+                                            }else{
+                                                <input type="radio" id="@item" name="radioShuffler" value="@item"/>
+                                                <label for="@item">@item</label>
+                                            }
+                                            
+                                        </div>
+                                    }
                                 }
                             </InputRadioGroup>
                         </div>
                         <div class="col">
                             <h3>HandCounter</h3>
                             <InputRadioGroup @bind-Value="Values.HandCounter">
-                                @foreach (var item in settingsList.HandCounters) {
-                                    <div>
-                                        <input id="@item.ToString()" name="radioHand" type="radio" value="@item.ToString()"/>
-                                        <label for="@item.ToString()">@item.ToString()</label>
-                                    </div>
+                                @{
+                                    bool isFirstChecked = true;
+                                    @foreach (var item in settingsList.HandCounters) {
+                                        <div>
+                                            @if(isFirstChecked)
+                                            {
+                                                isFirstChecked=false;
+                                                <input type="radio" id="@item" name="radioHand" value="@item" checked/>
+                                                <label for="@item">@item</label>
+                                            }else{
+                                                <input type="radio" id="@item" name="radioHand" value="@item"/>
+                                                <label for="@item">@item</label>
+                                            }
+                                            
+                                        </div>
+                                    }
                                 }
                             </InputRadioGroup>
                         </div>
                         <div class="col">
                             <h3>Board</h3>
                             <InputRadioGroup @bind-Value="Values.Board">
-                                @foreach (var item in settingsList.Boards) {
-                                    <div>
-                                        <input id="@item.ToString()" name="radioBoards" type="radio" value="@item.ToString()"/>
-                                        <label for="@item.ToString()">@item.ToString()</label>
-                                    </div>
+                                @{
+                                    bool isFirstChecked = true;
+                                    @foreach (var item in settingsList.Boards) {
+                                        <div>
+                                            @if(isFirstChecked)
+                                            {
+                                                isFirstChecked=false;
+                                                <input type="radio" id="@item" name="radioBoard" value="@item" checked/>
+                                                <label for="@item">@item</label>
+                                            }else{
+                                                <input type="radio" id="@item" name="radioBoard" value="@item"/>
+                                                <label for="@item">@item</label>
+                                            }
+                                            
+                                        </div>
+                                    }
                                 }
                             </InputRadioGroup>
                         </div>
@@ -151,32 +204,64 @@
 
 @code {
 
-    #region Play
-        private string? Tournament {get;set;}
-        private GameObject[]? Games {get;set;}
+#region Play
+    private Dictionary<string, int>? Table{get;set;}
+    private bool Playing { get; set; } = false;
+    private int Count{get;set;}
+    private Value? MarkedValues{get;set;}
+    private string? PiecesBoard{get;set;}
+    private string? Winner{get;set;}
+    private void PiecesOnBoard(){
 
-        private void Play()
+        if(Count < Games!.Length)
         {
-            ChangedThings changes = new ChangedThings(Values.GetBoard()!, Values.GetWinnable()!, Values.GetRounder()!, 
-                                                        Values.GetShuffler()!, Values.GetHandCounter()!);
+            PiecesBoard = string.Empty;
+            foreach (var play in Games[Count].Changes.Board.PiecesOnBoard!)
+            {
+                PiecesBoard += (play + " ");
+            }
+            Winner = Games[Count].Winner!.ToString();
+            Table![Games![Count].Winner!.ToString()!]+=1;
+            Count++;
+        }
+    }
+    private string? Tournament {get;set;} = "off";
+    private GameObject[]? Games {get;set;}
 
+    private void Play()
+    {
+        if(MarkedValues != null){
+            Playing = true;
             if(TournamentClass.IsTournament(Tournament!))
             {
-                Games = MakingGame.MakingGames(changes, 3);
+                Games = MakingGame.MakingGames(MarkedValues, 3);
                 TournamentClass.PlayTournament(Games, new PlayGame());
             }
             else
             {
-                Games = MakingGame.MakingGames(changes, 1);
+                Games = MakingGame.MakingGames(MarkedValues, 1);
                 TournamentClass.PlayTournament(Games, new PlayGame());
             }
+            CreatingTable(Games[Count].Players);
         }
+    }
+    private void CreatingTable(IPlayer[] players)
+    {
+        Table = new Dictionary<string, int>();
+        foreach (var player in players)
+        {
+            Table.Add(player.ToString()!, 0);
+        }
+    }
+#endregion
 
-    #endregion
+#region Settings
+    public Value Values{get; set;} = new ();
+    private SettingsList settingsList{ get;} = new SettingsList();
+    private void Save()
+    {
+        MarkedValues = new Value(Values.Winnable!, Values.Rounder!, Values.Shuffler!, Values.HandCounter!, Values.Board!);
+    }
 
-    #region Settings
-        public Value Values{get; set;} = new ();
-        private SettingsList settingsList{ get;} = new SettingsList();
-
-    #endregion
+#endregion
 }

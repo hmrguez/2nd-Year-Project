@@ -12,7 +12,7 @@ public class OnlyEvenDoublesPiece : Piece
         var temp = new RegularPiece(Left, Right);
         if (Left == Right)
         {
-            if (board.PiecesOnBoard.Count() % 2 == 0) return temp.CanPlay(board);
+            if (board.PiecesOnBoard!.Count() % 2 == 0) return temp.CanPlay(board);
             return false;
         }
         return temp.CanPlay(board);

@@ -1,20 +1,20 @@
 using Domino;
 
-public class SemiSmartPlayer: IPlayer{
-    public List<Piece> Hand { get; set; }
-    public Piece Play(Board board){
-        List<Piece> pieces = board.PiecesOnBoard;
+public class SemiSmartPlayer: BasePlayer
+{
+    public override Piece Play(Board board){
+        Table<Piece> pieces = board.PiecesOnBoard!;
         Dictionary<Piece,int> PieceScore = new Dictionary<Piece, int>();
-        foreach (var item in Hand.Where(x=>x.CanPlay(board)))
+        foreach (var piece in GetPossiblePieces(board))
         {
-            PieceScore.Add(item,0);
+            PieceScore.Add(piece,0);
         }
-        foreach (var item in pieces)
+        foreach (var piece in pieces)
         {
-            foreach (var item2 in Hand)
+            foreach (var pieceOnHand in Hand)
             {
-                if(item.Match(item2.Left)) PieceScore[item2]+=1;
-                if(item.Match(item2.Right)) PieceScore[item2]+=1;
+                if(piece.Match(pieceOnHand.Left)) PieceScore[pieceOnHand]+=1;
+                if(piece.Match(pieceOnHand.Right)) PieceScore[pieceOnHand]+=1;
             }
         }
         Piece x = PieceScore.MaxBy(x=>x.Value).Key;

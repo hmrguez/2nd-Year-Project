@@ -9,7 +9,12 @@ public class DropDoubleBlank : BaseWinnable
     public override bool EndCondition(GameObject game)
     {
         if (Utils.IsBlocked(game)) return true;
-        if (game.Rounds.Last().Piece.Left == 0 && game.Rounds.Last().Piece.Right == 0)
+        if (game.Rounds.Last().Piece != null && (game.Rounds.Last().Piece.Left == 0 && game.Rounds.Last().Piece.Right == 0))
+        {
+            Won = true;
+            return true;
+        }
+        if (game.Rounds.Last().Player.Hand.Count() == 0)
         {
             Won = true;
             return true;

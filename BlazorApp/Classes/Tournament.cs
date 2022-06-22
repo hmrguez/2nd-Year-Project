@@ -3,13 +3,7 @@ using Domino;
 
 public class TournamentClass
 {
-    public static bool IsTournament(string tournamnet)
-    {
-        if (string.IsNullOrEmpty(tournamnet))
-            return false;
-        else
-            return true;
-    }
+    public static bool IsTournament(string tournamnet) => tournamnet == "off" ? false : true;
     public static void PlayTournament(GameObject[] games, PlayGame single)
     {
         int count = 0;

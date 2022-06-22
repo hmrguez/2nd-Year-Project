@@ -30,11 +30,44 @@ public static class Utils
     }
 
 
-    public static IWinnable[] GetWinnables() => new IWinnable[] { new RegularWinnable(), new DropDoubleBlank() };
-    public static IShuffler[] GetShufflers() => new IShuffler[] { new RegularShuffler(), new SortedByLeftShuffler(), new ValueSortedShuffler() };
-    public static IRounder[] GetRounders() => new IRounder[] { new Clockwise(), new CounterClockWise(), new SkipTurn() };
-    public static Board[] GetBoards() => new Board[] { new RegularBoard(9), new DoubleEvenBoard(12) };
-    public static IHandCounter[] GetHandCounters() => new IHandCounter[] { new RegularHandCounter(), new DoubleDoubleHandCounter() };
-    public static IPlayer[] GetPlayers()=> new IPlayer[]{new PlayerRandom(), new PlayerMostValue(), new PlayerRandomValue(), new SemiSmartPlayer()};
+    public static string[] GetWinnables() 
+        => typeof(IShuffler)
+            .Assembly
+            .GetTypes()
+            .Where(p => p.BaseType == typeof(BaseWinnable))
+            .Select(p => p.Name)
+            .OrderByDescending(p => p)
+            .ToArray();
+    public static string[] GetShufflers() 
+        => typeof(IShuffler)
+            .Assembly
+            .GetTypes()
+            .Where(p => p.BaseType == typeof(BaseShuffler))
+            .Select(p => p.Name)
+            .ToArray();
+    public static string[] GetRounders() 
+        => typeof(IShuffler)
+            .Assembly
+            .GetTypes()
+            .Where(p => p.BaseType == typeof(BaseRounder))
+            .Select(p => p.Name)
+            .ToArray();
+    public static string[] GetBoards()
+        => typeof(IShuffler)
+            .Assembly
+            .GetTypes()
+            .Where(p => p.BaseType == typeof(Board))
+            .Select(p => p.Name)
+            .OrderByDescending(p => p)
+            .ToArray();
+    public static string[] GetHandCounters() 
+        => typeof(IShuffler)
+            .Assembly
+            .GetTypes()
+            .Where(p => p.BaseType == typeof(BaseHandCounter))
+            .Select(p => p.Name)
+            .OrderByDescending(p => p)
+            .ToArray();
+    public static IPlayer[] GetPlayers()=> new IPlayer[]{new PlayerRandom(), new PlayerMostValue(), new PlayerRandomValue()};
     
 }

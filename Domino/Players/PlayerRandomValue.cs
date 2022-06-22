@@ -1,10 +1,9 @@
 namespace Domino;
 
 
-public class PlayerRandomValue : IPlayer
+public class PlayerRandomValue : BasePlayer
 {
 
-    public List<Piece> Hand { get; private set; }
     private IPlayer _mode;
     public PlayerRandomValue()
     {
@@ -12,15 +11,14 @@ public class PlayerRandomValue : IPlayer
         this._mode = new PlayerMostValue();
     }
 
-    public Piece Play(Board board)
+    public override Piece Play(Board board)
     {
         ChangingMind(board);
         return this._mode.Play(board);
     }
     private void ChangingMind(Board board)
     {
-        //Idea pobre por poner algo
-        if (board.PiecesOnBoard.Count() == 10)
+        if (board.PiecesOnBoard!.Count() == 10)
         {
             this._mode = new PlayerRandom();
         }

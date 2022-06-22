@@ -1,15 +1,15 @@
 namespace Domino;
 
-public class PlayerMostValue : IPlayer
+public class PlayerMostValue : BasePlayer
 {
-    public List<Piece> Hand { get; set; }
     public PlayerMostValue()
     {
         Hand = new();
     }
-    public Piece Play(Board board)
+    public override Piece Play(Board board)
     {
-        Piece? piece = Hand.Where(pieces => pieces.CanPlay(board)).OrderByDescending(x=>x.GetValue()).First();
+        Piece? piece = GetPossiblePieces(board).OrderByDescending(x=>x.GetValue()).FirstOrDefault();
+        this.Hand.Remove(piece);
         return piece!;
     }
 }

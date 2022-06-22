@@ -2,20 +2,24 @@ using Domino;
 
 public class Value
 {
-    public string? Winnable { get; set; } = Utils.GetWinnables().First().GetType().Name;
-    public string? Rounder { get; set; } = Utils.GetRounders().First().GetType().Name;
-    public string? Shuffler{get;set;} = Utils.GetShufflers().First().GetType().Name;
-    public string? HandCounter{get;set;} = Utils.GetHandCounters().First().GetType().Name;
-    public string? Board{get;set;} = Utils.GetBoards().First().GetType().Name;
+    public string? Winnable { get; set; } = Utils.GetWinnables().FirstOrDefault();
+    public string? Rounder { get; set; } = Utils.GetRounders().FirstOrDefault();
+    public string? Shuffler{ get; set;} = Utils.GetShufflers().FirstOrDefault();
+    public string? HandCounter{ get; set;} = Utils.GetHandCounters().FirstOrDefault();
+    public string? Board{ get; set;} = Utils.GetBoards().FirstOrDefault();
 
-    public void GetEmpty()
+
+    public Value(){
+
+    }
+    public Value(string winnable, string rounder, string shuffler, string handCounter, string board)
     {
-        Winnable = string.Empty;
-        Rounder = string.Empty;
-        Shuffler = string.Empty;
-        HandCounter = string.Empty;
-        Board = string.Empty;
-    } 
+        this.Winnable = winnable;
+        this.Rounder = rounder;
+        this.Shuffler = shuffler;
+        this.HandCounter = handCounter;
+        this.Board= board;
+    }
     public IWinnable? GetWinnable()
     {
         Type? t = typeof(IWinnable).Assembly.GetTypes().FirstOrDefault(p => p.Name == Winnable);

@@ -8,7 +8,7 @@ public class RegularPiece : Piece
         Right = right;
     }
     public override bool CanPlay(Board board){
-        if(board.PiecesOnBoard.Count() == 0)
+        if(board.PiecesOnBoard!.Count() == 0)
             return true;
         return Match(board.PiecesOnBoard.First().Left) || Match(board.PiecesOnBoard.Last().Right);
     }
