@@ -3,7 +3,7 @@ using Domino;
 public class SemiSmartPlayer: BasePlayer
 {
     public override Piece Play(Board board){
-        Table<Piece> pieces = board.PiecesOnBoard!;
+        List<Piece> pieces = board.PiecesOnBoard!;
         Dictionary<Piece,int> PieceScore = new Dictionary<Piece, int>();
         foreach (var piece in GetPossiblePieces(board))
         {

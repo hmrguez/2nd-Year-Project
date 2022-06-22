@@ -6,8 +6,6 @@
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background-color: #27282c;
-    color: #fff;
 }
 
 h1:focus {
@@ -38,6 +36,9 @@ a, .btn-link {
 
 .validation-message {
     color: red;
+}
+.contain{
+    margin-top: 1em;
 }
 
 #blazor-error-ui {

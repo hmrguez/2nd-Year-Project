@@ -16,20 +16,6 @@ public static class Utils
     }
     public static IPlayer StandardCounter(GameObject game, IHandCounter HandCounter) => game.Players.MinBy(x => HandCounter.GetHandValue(x))!;
 
-    public static string Parse(this string s, string par){
-        string temp = $"{s[0]}";
-        for (int i = 1; i < s.Length; i++)
-        {
-
-            if(char.IsUpper(s[i])) temp+=$" {s[i]}";
-            else temp+=$"{s[i]}";
-        }
-        string[] six = temp.Split(' ');
-        string[] nine = par.Split(' ');
-        return string.Join(' ',six.Where(x => !nine.Contains(x))).ToString();
-    }
-
-
     public static string[] GetWinnables() 
         => typeof(IShuffler)
             .Assembly

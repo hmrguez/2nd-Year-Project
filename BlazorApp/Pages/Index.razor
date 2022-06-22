@@ -16,7 +16,7 @@
                         </div>
                     </div>
                     <div class="col" style="text-align: center; padding-top: 150px">
-                        <h1 class="btn-main"><span>Domino</span><i></i></h1>
+                        <h1 class="Domino">Domino</h1>
                         <BSButton class="btn-main" Color="BSColor.Primary" style="font-size: 25px;" @onclick="@Play"><span>Play</span><i></i></BSButton>
                     </div>
                     <div class="col-3" style="padding-top: 25px;">
@@ -24,10 +24,10 @@
                 </div>
             </div>
             <div class="container @(!Playing ? "d-none" : "")">
-                <div class="row">
-                    <button type="button" class="btn btn-primary" @onclick="@PiecesOnBoard">ShowPlays</button>
-                    <h1>Winner: @Winner</h1>
-                    <h2>Game: @Count</h2>
+                <div class="contain">
+                    <button type="button" class="btn-main" @onclick="@PiecesOnBoard"><span>ShowPlays</span><i></i></button>
+                    <h1 style="font-weight: bold;">Winner: @Winner</h1>
+                    <h2 style="font-weight: bold;">Game: @Count</h2>
                 </div>
                 <div class="row">
                     <div class="col-8">
@@ -38,8 +38,8 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Player</th>
-                                        <th scope="col">Score</th>
+                                        <th scope="col" style="font-weight: bold;">Player</th>
+                                        <th scope="col" style="font-weight: bold;">Score</th>
                                     </tr>
                                 </thead>
                                 <tbody>
