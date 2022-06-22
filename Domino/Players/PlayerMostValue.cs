@@ -1,18 +1,15 @@
 namespace Domino;
 
-public class PlayerMostValue : BasePlayer
+public class PlayerMostValue : IPlayer
 {
-    private IComparer<Piece>? _comparer;
-    public PlayerMostValue(IComparer<Piece> comparer)
+    public List<Piece> Hand { get; set; }
+    public PlayerMostValue()
     {
-        this.Hand = new();
-        this._comparer = comparer;
+        Hand = new();
     }
-    public override Piece Play(Board board)
+    public Piece Play(Board board)
     {
-        Piece? piece = this.Hand.Where(pieces => pieces.CanPlay(board))
-                                .OrderByDescending(pieces => pieces, this._comparer)
-                                .FirstOrDefault();
+        Piece? piece = Hand.Where(pieces => pieces.CanPlay(board)).OrderByDescending(x=>x.GetValue()).First();
         return piece!;
     }
 }

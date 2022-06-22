@@ -1,15 +1,17 @@
 namespace Domino;
 
-public class PlayerRandom : BasePlayer
+public class PlayerRandom : IPlayer
 {
+    public List<Piece> Hand { get; set; }
+
     public PlayerRandom()
     {
         Hand = new();
     }
-    public override Piece Play(Board board)
+    public Piece Play(Board board)
     {
         Random random = new Random();
-        var possiblePieces = GetPossiblePieces(board);
+        var possiblePieces = Hand.Where(x=>x.CanPlay(board));
         
         if(possiblePieces.Any()){
             Piece piece;

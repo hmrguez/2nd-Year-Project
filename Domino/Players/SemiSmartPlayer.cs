@@ -5,7 +5,7 @@ public class SemiSmartPlayer: IPlayer{
     public Piece Play(Board board){
         List<Piece> pieces = board.PiecesOnBoard;
         Dictionary<Piece,int> PieceScore = new Dictionary<Piece, int>();
-        foreach (var item in Hand)
+        foreach (var item in Hand.Where(x=>x.CanPlay(board)))
         {
             PieceScore.Add(item,0);
         }
@@ -20,5 +20,8 @@ public class SemiSmartPlayer: IPlayer{
         Piece x = PieceScore.MaxBy(x=>x.Value).Key;
         Hand.Remove(x);
         return x;
+    }
+    public SemiSmartPlayer(){
+        Hand = new();
     }
 }
