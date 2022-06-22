@@ -11,7 +11,7 @@ public class SemiSmartPlayer: BasePlayer
         }
         foreach (var piece in pieces)
         {
-            foreach (var pieceOnHand in Hand)
+            foreach (var pieceOnHand in GetPossiblePieces(board))
             {
                 if(piece.Match(pieceOnHand.Left)) PieceScore[pieceOnHand]+=1;
                 if(piece.Match(pieceOnHand.Right)) PieceScore[pieceOnHand]+=1;
