@@ -9,4 +9,8 @@ public abstract class BasePlayer : IPlayer
 
     public override string ToString() => GetType().Name;
 
+    public BasePlayer(){
+        Hand = new();
+    }
+
 }

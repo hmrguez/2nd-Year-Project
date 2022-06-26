@@ -5,10 +5,9 @@ public class RegularBoard : Board
     public RegularBoard() : this(9){}
     public RegularBoard(int maxInput)
     {
-        this.PiecesOnBoard = new();
-        this.Deck = Generate(maxInput);
+        PiecesOnBoard = new();
     }
-    protected override List<Piece> Generate(int maximumInput)
+    public override List<Piece> Generate(int maximumInput)
     {
         List<Piece> result = new();
         for (int i = 0; i <= maximumInput; i++)
