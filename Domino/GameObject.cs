@@ -29,8 +29,8 @@ public class GameObject
     }
     public void Play()
     {
-        Changes.Shuffler.Shuffle(Players, Changes.Board, 10);
-
+        Changes.Shuffler.Shuffle(Players, Changes.Board, MaxHandSize);
+        
         while (true)
         {
             Piece x = CurrentPlayer.Play(Changes.Board);

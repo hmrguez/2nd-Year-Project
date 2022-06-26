@@ -2,11 +2,7 @@ namespace Domino;
 
 public class DoubleEvenBoard : Board
 {
-    public DoubleEvenBoard() : this(12)
-    {
-        
-    }
-    public DoubleEvenBoard(int maxInput)
+    public DoubleEvenBoard()
     {
         PiecesOnBoard = new();
     }

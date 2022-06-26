@@ -2,8 +2,7 @@ namespace Domino;
 
 public class RegularBoard : Board
 {
-    public RegularBoard() : this(9){}
-    public RegularBoard(int maxInput)
+    public RegularBoard()
     {
         PiecesOnBoard = new();
     }
