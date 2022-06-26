@@ -20,7 +20,7 @@ public class ConsoleUtils{
         int a = int.Parse(Console.ReadLine()!);
         Console.Clear();
         Type t = ConsoleUtils.GetBoards()[a].GetType();
-        Board board = Activator.CreateInstance(t!) as Board;
+        Board? board = Activator.CreateInstance(t) as Board;
 
         System.Console.WriteLine("Choose your Shuffler");
         for (int i = 0; i < ConsoleUtils.GetShufflers().Length; i++)
@@ -30,7 +30,7 @@ public class ConsoleUtils{
         a = int.Parse(Console.ReadLine()!);
         Type s = ConsoleUtils.GetShufflers()[a].GetType();
         Console.Clear();
-        BaseShuffler shuffler = Activator.CreateInstance(s) as BaseShuffler;
+        BaseShuffler? shuffler = Activator.CreateInstance(s) as BaseShuffler;
         
         System.Console.WriteLine("Choose your Winnable");
         for (int i = 0; i < ConsoleUtils.GetWinnables().Length; i++)
@@ -40,7 +40,7 @@ public class ConsoleUtils{
         a = int.Parse(Console.ReadLine()!);
         t = ConsoleUtils.GetWinnables()[a].GetType();
         Console.Clear();
-        BaseWinnable winnable = Activator.CreateInstance(t!) as BaseWinnable;
+        BaseWinnable? winnable = Activator.CreateInstance(t!) as BaseWinnable;
 
         System.Console.WriteLine("Choose your Hand Counter");
         for (int i = 0; i < ConsoleUtils.GetHandCounters().Length; i++)
@@ -50,7 +50,7 @@ public class ConsoleUtils{
         a = int.Parse(Console.ReadLine()!);
         t = ConsoleUtils.GetHandCounters()[a].GetType();
         Console.Clear();
-        BaseHandCounter handCounter = Activator.CreateInstance(t!) as BaseHandCounter;
+        BaseHandCounter? handCounter = Activator.CreateInstance(t!) as BaseHandCounter;
 
         System.Console.WriteLine("Choose your Rounder");
         for (int i = 0; i < ConsoleUtils.GetRounders().Length; i++)
@@ -60,10 +60,10 @@ public class ConsoleUtils{
         a = int.Parse(Console.ReadLine()!);
         t = ConsoleUtils.GetRounders()[a].GetType();
         Console.Clear();
-        BaseRounder rounder = Activator.CreateInstance(t!) as BaseRounder;
+        BaseRounder? rounder = Activator.CreateInstance(t!) as BaseRounder;
 
         // return new ChangedThings(board,winnable,rounder,shuffler,handCounter);
-        return new ChangedThings(board,winnable, rounder, shuffler,handCounter);
+        return new ChangedThings(board!,winnable!, rounder!, shuffler!,handCounter!);
     }
     public static int[] GetSideConfig(){
         int[] m = new int[3];
@@ -87,8 +87,9 @@ public class ConsoleUtils{
                 System.Console.WriteLine($"[{i} {array[i]}]");
             }
             int a = int.Parse(Console.ReadLine()!);
-            Type t = array[a].GetType();
-            result[k] = Activator.CreateInstance(t) as BasePlayer;
+            Type? t = array[a].GetType();
+            BasePlayer? b = Activator.CreateInstance(t) as BasePlayer;
+            result[k] = b!;
             k+=1;
             Console.Clear();
         }

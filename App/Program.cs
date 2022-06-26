@@ -6,7 +6,7 @@ public class Program
     public static void Main()
     {
         System.Console.WriteLine("Want a quick game?");
-        string yor = Console.ReadLine();
+        string yor = Console.ReadLine()!;
         Console.Clear();
         if (yor == "Y" || yor == "y")
         {

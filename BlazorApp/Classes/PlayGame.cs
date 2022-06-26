@@ -22,7 +22,7 @@ public class PlayGame
                     game.Changes.Board.PiecesOnBoard = game.Changes.Board.PiecesOnBoard.Prepend(piece).ToList();
 
             }
-            game.Rounds.Add(new Round(game.CurrentPlayer, piece));
+            game.Rounds.Add(new Round(game.CurrentPlayer, piece!));
 
         }while(!game.Changes.WinCondition.EndCondition(game));
 
