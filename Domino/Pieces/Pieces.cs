@@ -1,6 +1,6 @@
 namespace Domino;
 
-public abstract class Piece : IValuable
+public abstract class Piece
 {
     public int Left { get; set; }
     public int Right { get; set; }

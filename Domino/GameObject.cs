@@ -2,7 +2,6 @@ namespace Domino;
 
 public class GameObject
 {
-    public event EventHandler? OnPlayerPassed;
     public int MaxHandSize { get; }
     public int BoardSize { get; set; }
     public List<Round> Rounds { get; set; }
@@ -10,6 +9,15 @@ public class GameObject
     public IPlayer CurrentPlayer { get; set; }
     public IPlayer? Winner{ get; set;}
     public ChangedThings Changes{ get;}
+    
+    public GameObject(){
+        Changes = new(new RegularBoard(),new RegularWinnable(),new Clockwise(),new RegularShuffler(),new RegularHandCounter());
+        MaxHandSize = 10;
+        Players = new IPlayer[]{new PlayerMostValue(), new PlayerRandom(), new PlayerRandom(), new PlayerMostValue()};
+        CurrentPlayer = Players[0];
+        Changes.Board.Deck = Changes.Board.Generate(9);
+        Rounds = new();
+    }
     public GameObject(int maxHandSize, IPlayer[] players, ChangedThings changedThings)
     {
         this.Changes = changedThings;
