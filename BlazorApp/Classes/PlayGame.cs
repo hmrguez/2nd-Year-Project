@@ -14,15 +14,15 @@ public class PlayGame
 
             if(piece != null)
             {
-                if(game.Changes.Board.PiecesOnBoard.Count() == 0)
-                    game.Changes.Board.PiecesOnBoard.Add(piece);
-                else if(MatchingLast(game.Changes.Board.PiecesOnBoard.Last(), piece))
-                    game.Changes.Board.PiecesOnBoard.Add(piece);
-                else if(MatchingFirst(game.Changes.Board.PiecesOnBoard.First(), piece))
-                    game.Changes.Board.PiecesOnBoard = game.Changes.Board.PiecesOnBoard.Prepend(piece).ToList();
+                if(game.Changes.Board.PiecesOnBoard!.Count() == 0)
+                    game.Changes.Board.PiecesOnBoard!.Add(piece);
+                else if(MatchingLast(game.Changes.Board.PiecesOnBoard!.Last(), piece))
+                    game.Changes.Board.PiecesOnBoard!.Add(piece);
+                else if(MatchingFirst(game.Changes.Board.PiecesOnBoard!.First(), piece))
+                    game.Changes.Board.PiecesOnBoard = game.Changes.Board.PiecesOnBoard!.Prepend(piece).ToList();
 
             }
-            game.Rounds.Add(new Round(game.CurrentPlayer, piece));
+            game.Rounds.Add(new Round(game.CurrentPlayer, piece!));
 
         }while(!game.Changes.WinCondition.EndCondition(game));
 

@@ -54,6 +54,14 @@ public static class Utils
             .Select(p => p.Name)
             .OrderByDescending(p => p)
             .ToArray();
-    public static IPlayer[] GetPlayers()=> new IPlayer[]{new PlayerRandom(), new PlayerMostValue(), new PlayerRandomValue()};
+    public static string[] GetPlayers()
+        => typeof(IPlayer)
+            .Assembly
+            .GetTypes()
+            .Where(p => p.BaseType ==  typeof(BasePlayer))
+            .Select(p => p.Name)
+            .ToArray(); 
+
+    //public static IPlayer[] GetPlayers() => new IPlayer[]{new PlayerRandom(), new PlayerMostValue(), new PlayerRandomValue()};
     
 }

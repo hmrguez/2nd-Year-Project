@@ -8,6 +8,7 @@ public class SettingsList
     public string[] Shufflers { get; }
     public string[] HandCounters { get; }
     public string[] Boards{get;}
+    public string[] Players{get;}
 
     public SettingsList()
     {
@@ -16,5 +17,6 @@ public class SettingsList
         Shufflers = Utils.GetShufflers();
         HandCounters = Utils.GetHandCounters();
         Boards = Utils.GetBoards();
+        Players = Utils.GetPlayers();
     }
 }
