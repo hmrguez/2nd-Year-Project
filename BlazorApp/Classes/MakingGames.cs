@@ -10,9 +10,9 @@ public static class MakingGame
 
         for (int i = 0; i < games.Length; i++)
         {
-            ChangedThings changes = new ChangedThings(values.GetBoard(values.GetMaximumSize())!, values.GetWinnable()!, values.GetRounder()!, 
+            ChangedThings changes = new ChangedThings(values.GetBoard()!, values.GetWinnable()!, values.GetRounder()!, 
                                                     values.GetShuffler()!, values.GetHandCounter()!);
-            games[i] = new GameObject(values.GetMaxHandSize(), MakingGame.MakingPlayers(values.Players!, values.GetAmountPlayers()), changes);
+            games[i] = new GameObject(values.GetMaxHandSize(), MakingGame.MakingPlayers(values.Players!, values.GetAmountPlayers()), changes, values.GetMaximumSize());
         }
 
         return games;

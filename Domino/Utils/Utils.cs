@@ -17,7 +17,7 @@ public static class Utils
     public static IPlayer StandardCounter(GameObject game, IHandCounter HandCounter) => game.Players.MinBy(x => HandCounter.GetHandValue(x))!;
 
     public static string[] GetWinnables() 
-        => typeof(IShuffler)
+        => typeof(IWinnable)
             .Assembly
             .GetTypes()
             .Where(p => p.BaseType == typeof(BaseWinnable))
@@ -32,14 +32,14 @@ public static class Utils
             .Select(p => p.Name)
             .ToArray();
     public static string[] GetRounders() 
-        => typeof(IShuffler)
+        => typeof(IRounder)
             .Assembly
             .GetTypes()
             .Where(p => p.BaseType == typeof(BaseRounder))
             .Select(p => p.Name)
             .ToArray();
     public static string[] GetBoards()
-        => typeof(IShuffler)
+        => typeof(Board)
             .Assembly
             .GetTypes()
             .Where(p => p.BaseType == typeof(Board))
@@ -47,7 +47,7 @@ public static class Utils
             .OrderByDescending(p => p)
             .ToArray();
     public static string[] GetHandCounters() 
-        => typeof(IShuffler)
+        => typeof(IHandCounter)
             .Assembly
             .GetTypes()
             .Where(p => p.BaseType == typeof(BaseHandCounter))

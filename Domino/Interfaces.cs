@@ -45,10 +45,6 @@ public class Round
         Piece = piece;
     }
 }
-public interface IValuable
-{
-    int GetValue();
-}
 public interface IHandCounter
 {
 

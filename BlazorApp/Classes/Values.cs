@@ -48,11 +48,11 @@ public class Value
         Type? t = typeof(IHandCounter).Assembly.GetTypes().FirstOrDefault(p => p.Name == HandCounter);
         return Activator.CreateInstance(t!) as IHandCounter;
     }
-    public Board? GetBoard(int maximumSize)
+    public Board? GetBoard()
     {
         Type? t = typeof(Board).Assembly.GetTypes().FirstOrDefault(p => p.Name == Board);
         
-        return Activator.CreateInstance(t!, maximumSize) as Board;
+        return Activator.CreateInstance(t!) as Board;
     }
     public static IPlayer? GetPlayer(string player)
     {

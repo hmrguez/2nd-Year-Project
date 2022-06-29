@@ -317,20 +317,20 @@
                                 Values.MaximumSize, Values.MaxHandSize, Values.AmountPlayers, Players.ToArray());
     }
     public List<string> Players { get; set; } = new List<string>();
-    void CheckboxClicked(string clubID, object checkedValue)
+    void CheckboxClicked(string player, object checkedValue)
     {
         if ((bool)checkedValue)
         {
-            if (!Players.Contains(clubID))
+            if (!Players.Contains(player))
             {
-                Players.Add(clubID);
+                Players.Add(player);
             }
         }
         else
         {
-            if (Players.Contains(clubID))
+            if (Players.Contains(player))
             {
-                Players.Remove(clubID);
+                Players.Remove(player);
             }
         }
     }

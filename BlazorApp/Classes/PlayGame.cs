@@ -16,43 +16,34 @@ public class PlayGame
             {
                 if(game.Changes.Board.PiecesOnBoard!.Count() == 0)
                     game.Changes.Board.PiecesOnBoard!.Add(piece);
-                else if(MatchingLast(game.Changes.Board.PiecesOnBoard!.Last(), piece))
-                    game.Changes.Board.PiecesOnBoard!.Add(piece);
-                else if(MatchingFirst(game.Changes.Board.PiecesOnBoard!.First(), piece))
-                    game.Changes.Board.PiecesOnBoard = game.Changes.Board.PiecesOnBoard!.Prepend(piece).ToList();
-
+                    if (piece.Match(game.Changes.Board.PiecesOnBoard.Last().Right))
+                {
+                    if (piece.Left == game.Changes.Board.PiecesOnBoard.Last().Right)
+                    {
+                        game.Changes.Board.PiecesOnBoard.Add(piece);
+                    }
+                    else
+                    {
+                        game.Changes.Board.PiecesOnBoard.Add(piece.Rotate());
+                    }
+                }
+                else if (piece.Match(game.Changes.Board.PiecesOnBoard.First().Left))
+                {
+                    if (piece.Right == game.Changes.Board.PiecesOnBoard.First().Left)
+                    {
+                        game.Changes.Board.PiecesOnBoard = game.Changes.Board.PiecesOnBoard.Prepend(piece).ToList();
+                    }
+                    else
+                    {
+                        game.Changes.Board.PiecesOnBoard = game.Changes.Board.PiecesOnBoard.Prepend(piece.Rotate()).ToList();
+                    }
+                }
             }
             game.Rounds.Add(new Round(game.CurrentPlayer, piece!));
 
         }while(!game.Changes.WinCondition.EndCondition(game));
 
         game.Winner = game.Changes.WinCondition.Winner(game);
-    }
-    private bool MatchingFirst(Piece first, Piece toCheck){
-        if(first.Left == toCheck.Left)
-        {
-            toCheck.Rotate();
-            return true;
-        }
-        else if(first.Left == toCheck.Right)
-        {
-            return true;
-        }
-        else
-            return false;
-    }
-    private bool MatchingLast(Piece last, Piece toCheck){
-        if(last.Right == toCheck.Left)
-        {
-            return true;
-        }
-        else if(last.Right == toCheck.Right)
-        {
-            toCheck.Rotate();
-            return true;
-        }
-        else
-            return false;
     }
 
 
