@@ -10,6 +10,7 @@ public class ConsoleUtils{
     public static BaseHandCounter[] GetHandCounters() => new BaseHandCounter[]{new RegularHandCounter(), new DoubleDoubleHandCounter()};
     public static BaseRounder[] GetRounders() => new BaseRounder[]{new Clockwise(), new CounterClockWise(), new SkipTurn()};
     #endregion
+    
     #region Config
     public static ChangedThings GetMainConfig(){
         System.Console.WriteLine("Choose your Board");
@@ -73,6 +74,7 @@ public class ConsoleUtils{
         m[1] = int.Parse(Console.ReadLine()!);
         System.Console.WriteLine("Choose your amount of Players Size");
         m[2] = int.Parse(Console.ReadLine()!);
+        Console.Clear();
         return m;
     }
     public static BasePlayer[] GetPlayerConfig(int p){
@@ -84,7 +86,7 @@ public class ConsoleUtils{
             System.Console.WriteLine("Choose your Player");
             for (int i = 0; i < array.Length; i++)
             {
-                System.Console.WriteLine($"[{i} {array[i]}]");
+                System.Console.WriteLine($"[{i}] {array[i]}");
             }
             int a = int.Parse(Console.ReadLine()!);
             Type? t = array[a].GetType();

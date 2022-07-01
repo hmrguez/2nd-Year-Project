@@ -7,29 +7,32 @@ public class GameObject
     public List<Round> Rounds { get; set; }
     public IPlayer[] Players { get; }
     public IPlayer CurrentPlayer { get; set; }
-    public IPlayer? Winner{ get; set;}
-    public ChangedThings Changes{ get;}
-    
-    public GameObject(){
-        Changes = new(new RegularBoard(),new RegularWinnable(),new Clockwise(),new RegularShuffler(),new RegularHandCounter());
+    public IPlayer? Winner { get; set; }
+    public ChangedThings Changes { get; }
+
+    public GameObject()
+    {
+        Changes = new(new RegularBoard(), new RegularWinnable(), new Clockwise(), new RegularShuffler(), new RegularHandCounter());
         MaxHandSize = 10;
-        Players = new IPlayer[]{new PlayerMostValue(), new PlayerRandom(), new PlayerRandom(), new PlayerMostValue()};
+        Players = new IPlayer[] { new PlayerMostValue(), new PlayerRandom(), new PlayerRandom(), new PlayerMostValue() };
         CurrentPlayer = Players[0];
         Changes.Board.Deck = Changes.Board.Generate(9);
         Rounds = new();
     }
-    public GameObject(int maxHandSize, IPlayer[] players, ChangedThings changedThings, int boardSize){
+    public GameObject(int maxHandSize, IPlayer[] players, ChangedThings changedThings, int boardSize)
+    {
         this.Changes = changedThings;
         MaxHandSize = maxHandSize;
         Players = players;
         Rounds = new();
         CurrentPlayer = Players[0];
+        BoardSize = boardSize;
         Changes.Board.Deck = Changes.Board.Generate(boardSize);
     }
     public void Play()
     {
         Changes.Shuffler.Shuffle(Players, Changes.Board, MaxHandSize);
-        
+
         while (true)
         {
             Piece x = CurrentPlayer.Play(Changes.Board);
@@ -70,5 +73,15 @@ public class GameObject
             }
             CurrentPlayer = Changes.Rounder.NextPlayer(this);
         }
+    }
+    public void Reset()
+    {
+        Changes.Board.Deck = Changes.Board.Generate(BoardSize);
+        Changes.Board.PiecesOnBoard = new();
+        foreach (var item in Players)
+        {
+            item.ResetHand();
+        }
+        Winner = null;
     }
 }

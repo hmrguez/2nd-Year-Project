@@ -2,8 +2,11 @@ namespace Domino;
 
 public interface IPlayer
 {
-    public List<Piece> Hand { get; }
+    public List<Piece> Hand { get; set; }
     public Piece Play(Board board);
+    public void ResetHand(){
+        Hand = new();
+    }
 }
 
 public interface IRounder

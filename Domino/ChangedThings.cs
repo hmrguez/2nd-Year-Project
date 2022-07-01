@@ -10,7 +10,7 @@ public class ChangedThings
         this.Shuffler = shuffler;
         this.HandCounter = handCounter;
     }
-    public Board Board { get; }
+    public Board Board { get; set;}
     public IWinnable WinCondition { get; }
     public IRounder Rounder { get; }
     public IShuffler Shuffler { get; }
