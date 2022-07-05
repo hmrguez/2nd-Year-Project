@@ -213,7 +213,7 @@
                         <div class="col-3">
                             <InputRadioGroup @bind-Value="PlayerValues.Player1">
                                 @{
-                                    <input type="input-text" name="playerInput" required>
+                                    <input type="input-text" name="playerInput" placeholder="Name" required>
                                     bool isFirstChecked = true;
                                     @foreach (var player1 in settingsList.Players)
                                     {
@@ -236,7 +236,7 @@
                         <div class="col-3">
                             <InputRadioGroup @bind-Value="PlayerValues.Player2">
                                 @{
-                                    <input type="input-text" name="playerInput2" required>
+                                    <input type="input-text" name="playerInput2" placeholder="Name" required>
                                     bool isFirstChecked2 = true;
                                     @foreach (var player2 in settingsList.Players)
                                     {
@@ -258,7 +258,7 @@
                         <div class="col-3">
                             <InputRadioGroup @bind-Value="PlayerValues.Player3">
                                 @{
-                                    <input type="input-text" name="playerInput3" required>
+                                    <input type="input-text" name="playerInput3" placeholder="Name" required>
                                     bool isFirstChecked3 = true;
                                     @foreach (var player3 in settingsList.Players)
                                     {
@@ -280,7 +280,7 @@
                         <div class="col-3">
                                 <InputRadioGroup @bind-Value="PlayerValues.Player4">
                                     @{
-                                        <input type="input-text" name="playerInput4" required>
+                                        <input type="input-text" name="playerInput4" placeholder="Name" required>
                                         bool isFirstChecked4 = true;
                                         @foreach (var player4 in settingsList.Players)
                                         {
