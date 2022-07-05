@@ -80,6 +80,7 @@
         <TabContent>
             <div class="container" style="padding-top: 20px;">
                 <EditForm Model="@Values" OnSubmit="@Save">
+                    <h2>General Settings</h2>
                     <div class="row row-cols-5">
                         <div class="col">
                             <h3>Winnable</h3>
@@ -209,10 +210,12 @@
                             <input type="number" max="100" min="6" maxlength="2" @bind-value="Values.MaximumSize"/>
                         </div>
                     </div>
-                    <div class="row" style="padding-top: 50px;">
+                    <h2 style="padding-top: 25px;">Player Settings</h2>
+                    <div class="row">
                         <div class="col-3">
                             <InputRadioGroup @bind-Value="PlayerValues.Player1">
                                 @{
+                                    <h3>Player1</h3>
                                     <input type="input-text" name="playerInput" placeholder="Name" required>
                                     bool isFirstChecked = true;
                                     @foreach (var player1 in settingsList.Players)
@@ -221,7 +224,7 @@
                                             @if(isFirstChecked)
                                             {
                                                 isFirstChecked=false;
-                                                <input type="radio" id="@player1" name="player1" value="@player1"checked/>
+                                                <input type="radio" id="@player1" name="player1" value="@player1" checked/>
                                                 <label>@player1</label>
                                             }else{
                                                 <input type="radio" id="@player1" name="player1" value="@player1"/>
@@ -236,6 +239,7 @@
                         <div class="col-3">
                             <InputRadioGroup @bind-Value="PlayerValues.Player2">
                                 @{
+                                    <h3>Player2</h3>
                                     <input type="input-text" name="playerInput2" placeholder="Name" required>
                                     bool isFirstChecked2 = true;
                                     @foreach (var player2 in settingsList.Players)
@@ -258,6 +262,7 @@
                         <div class="col-3">
                             <InputRadioGroup @bind-Value="PlayerValues.Player3">
                                 @{
+                                    <h3>Player3</h3>
                                     <input type="input-text" name="playerInput3" placeholder="Name" required>
                                     bool isFirstChecked3 = true;
                                     @foreach (var player3 in settingsList.Players)
@@ -266,10 +271,10 @@
                                             @if(isFirstChecked3)
                                             {
                                                 isFirstChecked3=false;
-                                                <input type="radio" id="@player3" name="player3" value="@player3" checked/>
+                                                <input type="radio" id="@player3" name="player3" value="@player3" disabled="@DisableRadioButton("3")" checked/>
                                                 <label>@player3</label>
                                             }else{
-                                                <input type="radio" id="@player3" name="player3" value="@player3"/>
+                                                <input type="radio" id="@player3" name="player3" value="@player3" disabled="@DisableRadioButton("3")" />
                                                 <label>@player3</label>
                                             }
                                         </div>
@@ -280,6 +285,7 @@
                         <div class="col-3">
                                 <InputRadioGroup @bind-Value="PlayerValues.Player4">
                                     @{
+                                        <h3>Player4</h3>
                                         <input type="input-text" name="playerInput4" placeholder="Name" required>
                                         bool isFirstChecked4 = true;
                                         @foreach (var player4 in settingsList.Players)
@@ -288,10 +294,10 @@
                                                 @if(isFirstChecked4)
                                                 {
                                                     isFirstChecked4=false;
-                                                    <input type="radio" id="@player4" name="player4" value="@player4" checked/>
+                                                    <input type="radio" id="@player4" name="player4" value="@player4" disabled="@DisableRadioButton("4")" checked/>
                                                     <label>@player4</label>
                                                 }else{
-                                                    <input type="radio" id="@player4" name="player4" value="@player4"/>
+                                                    <input type="radio" id="@player4" name="player4" value="@player4" disabled="@DisableRadioButton("4")" />
                                                     <label>@player4</label>
                                                 }
                                             </div>
@@ -392,24 +398,14 @@
                                 Values.HandCounter!, Values.Board!, Values.Amount, 
                                 Values.MaximumSize, Values.MaxHandSize, Values.AmountPlayers, Players.ToArray());
     }
-    public List<string> Players { get; set; } = new List<string>();
-    void CheckboxClicked(string player, object checkedValue)
+    public bool DisableRadioButton(string number)
     {
-        if ((bool)checkedValue)
-        {
-            if (!Players.Contains(player))
-            {
-                Players.Add(player);
-            }
-        }
-        else
-        {
-            if (Players.Contains(player))
-            {
-                Players.Remove(player);
-            }
-        }
+        int num = int.Parse(number);
+
+        return Values.GetAmountPlayers() < num? true:false;
     }
+    public List<string> Players { get; set; } = new List<string>();//Quitar
+    
 
 #endregion
 }
