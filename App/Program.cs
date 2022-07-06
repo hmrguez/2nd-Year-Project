@@ -30,17 +30,20 @@ public class Program
                     int x = int.Parse(Console.ReadLine()!);
                     for (int i = 0; i < x; i++)
                     {
-                        
                         game.Play();
                         System.Console.WriteLine(string.Join(" ", game.Changes.Board.PiecesOnBoard));
+                        System.Console.WriteLine();
                         System.Console.WriteLine(game.Winner);
+                        System.Console.WriteLine();
                         game.Reset();
                     }
                 }
                 else{
                     game.Play();
                     System.Console.WriteLine(string.Join(" ", game.Changes.Board.PiecesOnBoard));
+                    System.Console.WriteLine();
                     System.Console.WriteLine(game.Winner);
+                    System.Console.WriteLine();
                     game.Reset();
                 }
             }
