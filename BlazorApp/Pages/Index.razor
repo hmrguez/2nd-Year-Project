@@ -349,7 +349,7 @@
         {
             ShowList = true;
             PiecesBoard = string.Empty;
-            foreach (var play in Games[Count].Changes.Board.PiecesOnBoard!)
+            foreach (var play in Games[Count].Settings.Board.PiecesOnBoard!)
             {
                 PiecesBoard += (play + " ");
             }

@@ -3,7 +3,7 @@ using Domino;
 public class ConsoleUtils
 {
     ///<summary>Consigue la propiedad ChangedThings del juego</summary>
-    public static ChangedThings GetMainConfig()
+    public static Settings GetMainConfig()
     {
         System.Console.WriteLine("Choose your Board");
 
@@ -73,7 +73,7 @@ public class ConsoleUtils
 
         //Se devuelve un objeto de ChangedThings con todos los módulos recogidos anteriormente
 
-        return new ChangedThings(a!, c!, e!, b!, d!);
+        return new Settings(a!, c!, e!, b!, d!);
     }
 
     ///<returns>Un array de tamaño 3 de enteros donde el valor en la posicion 0 es el tamaño del tablero, en 1 el de la mano y en 2 la cantidad de jugadores</returns>

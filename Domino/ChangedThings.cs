@@ -1,8 +1,8 @@
 namespace Domino;
 
-public class ChangedThings
+public class Settings
 {
-    public ChangedThings(Board board, IWinnable winCondition, IRounder rounder, IShuffler shuffler, IHandCounter handCounter)
+    public Settings(Board board, IWinnable winCondition, IRounder rounder, IShuffler shuffler, IHandCounter handCounter)
     {
         this.Board = board;
         this.WinCondition = winCondition;
