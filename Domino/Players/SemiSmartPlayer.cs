@@ -13,8 +13,10 @@ public class SemiSmartPlayer: BasePlayer
         {
             foreach (var pieceOnHand in GetPossiblePieces(board))
             {
-                if(piece.Match(pieceOnHand.Left)) PieceScore[pieceOnHand]+=1;
-                if(piece.Match(pieceOnHand.Right)) PieceScore[pieceOnHand]+=1;
+                if(piece.MatchLeft(pieceOnHand.Left)) PieceScore[pieceOnHand]+=1;
+                if(piece.MatchRight(pieceOnHand.Left)) PieceScore[pieceOnHand]+=1;
+                if(piece.MatchLeft(pieceOnHand.Right)) PieceScore[pieceOnHand]+=1;
+                if(piece.MatchRight(pieceOnHand.Right)) PieceScore[pieceOnHand]+=1;
             }
         }
         if(PieceScore.Count==0) return null!;

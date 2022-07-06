@@ -7,7 +7,6 @@ public abstract class Piece
 
     ///<returns> True if this piece can fit in the board, false if can't </returns>
     public abstract bool CanPlay(Board board);
-
     ///<summary> Rotates the piece so their side values change position </summary>
     public Piece Rotate()
     {
@@ -21,6 +20,9 @@ public abstract class Piece
     public int GetValue() => Left + Right;
 
     ///<returns> True if any side of this piece matches the int, false if doesn't </returns>
-    public bool Match(int num) => (Left == num || Right == num) ? true : false;
+    public abstract bool MatchLeft(int num);
+    public abstract bool MatchRight(int num);
+    public bool Match(int num) => MatchLeft(num) || MatchRight(num);
+
     public override string ToString() => $"[{Left}|{Right}]";
 }

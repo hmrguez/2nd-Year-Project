@@ -17,4 +17,6 @@ public class OnlyEvenDoublesPiece : Piece
         }
         return temp.CanPlay(board);
     }
+    public override bool MatchRight(int num) => Right == num;
+    public override bool MatchLeft(int num) => Left == num; 
 }

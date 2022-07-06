@@ -2,6 +2,7 @@ using Domino;
 
 public class ConsoleUtils
 {
+    ///<summary>Consigue la propiedad ChangedThings del juego</summary>
     public static ChangedThings GetMainConfig()
     {
         System.Console.WriteLine("Choose your Board");
@@ -10,6 +11,12 @@ public class ConsoleUtils
         {
             System.Console.WriteLine($"[{i}] {Utils.GetBoards()[i]}");
         }
+
+        //Se le da a escoger al usuario un número en pantalla para que sea el tablero que quiera
+        //Se guarda ese número y se coge el string que está en el array en ese índice
+        //Se usa reflection para crear una instancia del primer elemento que tenga ese por nombre
+        //Lo mismo se hace con el resto de módulos
+
         int x = int.Parse(Console.ReadLine()!);
         var y = typeof(Board).Assembly.GetTypes().First(t => t.Name == Utils.GetBoards()[x]);
         var a = Activator.CreateInstance(y) as Board;
@@ -64,8 +71,12 @@ public class ConsoleUtils
 
         Console.Clear();
 
+        //Se devuelve un objeto de ChangedThings con todos los módulos recogidos anteriormente
+
         return new ChangedThings(a!, c!, e!, b!, d!);
     }
+
+    ///<returns>Un array de tamaño 3 de enteros donde el valor en la posicion 0 es el tamaño del tablero, en 1 el de la mano y en 2 la cantidad de jugadores</returns>
     public static int[] GetSideConfig()
     {
         int[] m = new int[3];
@@ -78,6 +89,8 @@ public class ConsoleUtils
         Console.Clear();
         return m;
     }
+    ///<summary>Hace exactamente lo mismo que los módulos pero con los jugadores, se le pasa el máximo de jugadores</summary>
+    ///<returns>Un array con todos los jugadores de la partida</returns>
     public static BasePlayer[] GetPlayerConfig(int p)
     {
         int k = 0;

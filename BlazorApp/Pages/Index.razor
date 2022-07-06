@@ -368,12 +368,12 @@
             if(TournamentClass.IsTournament(MarkedValues.GetAmount()))
             {
                 Games = MakingGame.MakingGames(MarkedValues, MarkedValues.GetAmount());
-                TournamentClass.PlayTournament(Games, new PlayGame());
+                TournamentClass.PlayTournament(Games);
             }
             else
             {
                 Games = MakingGame.MakingGames(MarkedValues, 1);
-                TournamentClass.PlayTournament(Games, new PlayGame());
+                TournamentClass.PlayTournament(Games);
             }
             CreatingTable(Games[Count].Players);
         }

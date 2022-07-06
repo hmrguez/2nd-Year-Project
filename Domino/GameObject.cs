@@ -35,16 +35,20 @@ public class GameObject
 
         while (true)
         {
+            //En cada iteración el jugador actual tiene que jugar una pieza
+            //Esta se recoge
             Piece x = CurrentPlayer.Play(Changes.Board);
             if (Changes.Board.PiecesOnBoard.Count == 0)
             {
+                //Si es la primera entonces simplemente se añade
                 Changes.Board.PiecesOnBoard.Add(x);
             }
             else if (x != null)
             {
+                // Si no, por como funciona el Play, se sabe que o se 
                 if (x.Match(Changes.Board.PiecesOnBoard.Last().Right))
                 {
-                    if (x.Left == Changes.Board.PiecesOnBoard.Last().Right)
+                    if (x.MatchLeft(Changes.Board.PiecesOnBoard.Last().Right))
                     {
                         Changes.Board.PiecesOnBoard.Add(x);
                     }
@@ -55,7 +59,7 @@ public class GameObject
                 }
                 else if (x.Match(Changes.Board.PiecesOnBoard.First().Left))
                 {
-                    if (x.Right == Changes.Board.PiecesOnBoard.First().Left)
+                    if (x.MatchRight(Changes.Board.PiecesOnBoard.First().Left))
                     {
                         Changes.Board.PiecesOnBoard = Changes.Board.PiecesOnBoard.Prepend(x).ToList();
                     }
@@ -63,6 +67,10 @@ public class GameObject
                     {
                         Changes.Board.PiecesOnBoard = Changes.Board.PiecesOnBoard.Prepend(x.Rotate()).ToList();
                     }
+                }
+                else
+                {
+                    throw new Exception("Ha introducido un jugador que hace trampas");
                 }
             }
             Rounds.Add(new Round(CurrentPlayer, x!));
