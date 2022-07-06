@@ -14,7 +14,7 @@ public class GameObject
     {
         Settings = new(new RegularBoard(), new RegularWinnable(), new Clockwise(), new RegularShuffler(), new RegularHandCounter());
         MaxHandSize = 10;
-        Players = new IPlayer[] { new PlayerMostValue(), new PlayerRandom(), new PlayerRandom(), new PlayerMostValue() };
+        Players = new IPlayer[] { new PlayerMostValue("MartaBot"), new PlayerRandom("TobiasBot"), new PlayerRandom("FranciscoBot"), new PlayerMostValue("VladBot") };
         CurrentPlayer = Players[0];
         Settings.Board.Deck = Settings.Board.Generate(9);
         Rounds = new();

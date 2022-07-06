@@ -2,9 +2,10 @@ namespace Domino;
 
 public class PlayerMostValue : BasePlayer
 {
-    public PlayerMostValue()
+    public PlayerMostValue(string name)
     {
         Hand = new();
+        Name = name;
     }
     public override Piece Play(Board board)
     {

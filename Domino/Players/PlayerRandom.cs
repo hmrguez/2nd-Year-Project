@@ -3,9 +3,11 @@ namespace Domino;
 public class PlayerRandom : BasePlayer
 {
 
-    public PlayerRandom()
+    public PlayerRandom(string name)
     {
         Hand = new();
+        Name = name;
+
     }
     public override Piece Play(Board board)
     {

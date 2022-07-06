@@ -5,10 +5,11 @@ public class PlayerRandomValue : BasePlayer
 {
 
     private IPlayer _mode;
-    public PlayerRandomValue()
+    public PlayerRandomValue(string name)
     {
+        Name = name;
         this.Hand = new List<Piece>();
-        this._mode = new PlayerMostValue();
+        this._mode = new PlayerMostValue(name);
     }
 
     public override Piece Play(Board board)
@@ -20,7 +21,7 @@ public class PlayerRandomValue : BasePlayer
     {
         if (board.PiecesOnBoard!.Count() == 10)
         {
-            this._mode = new PlayerRandom();
+            this._mode = new PlayerRandom(Name);
         }
     }
 }

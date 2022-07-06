@@ -24,7 +24,9 @@ public class SemiSmartPlayer: BasePlayer
         Hand.Remove(x);
         return x;
     }
-    public SemiSmartPlayer(){
+    public SemiSmartPlayer(string name){
         Hand = new();
+
+        Name = name;
     }
 }
