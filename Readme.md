@@ -8,15 +8,17 @@ Es un modelo de un juego de dominó con bots. El juego tiene capacidad de ser mo
 
 (Ninguna dependencia)
 
-cd App
-dotnet run
+- cd App
+- dotnet run
 
 ## Instrucciones para abir aplicacion en Blazor
 
 (Tiene BlazorStrap como dependencia)
 
-cd BlazorApp
-dotnet restore
-dotnet watch run
+- cd BlazorApp
+
+- dotnet restore
+
+- dotnet watch run
 
 (Tener en cuenta que se deben escoger las opciones antes de jugar en la aplicación Blazor y después darle a Save y después se juega solo)
