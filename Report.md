@@ -61,12 +61,14 @@ public abstract class Piece
         return this;
     }
     public int GetValue() => Left + Right;
-    public bool Match(int num) => (Left == num || Right == num) ? true : false;
+    public abstract bool MatchLeft(int num);
+    public abstract bool MatchRight(int num);
+    public bool Match(int num) => MatchLeft(num) || MatchRight(num);
     public override string ToString() => $"[{Left}|{Right}]";
 }
 ```
 
-Esta clase abstracta representa como su propio nombre dice la ficha, el token con que se juega. Básicamente esta clase tiene varios métodos ya predefinidos pero el método CanPlay deberá adaptarse para ver cómo se puede jugar una ficha en un determinado tablero. Las propiedades right y left representan el valor de cada lado de la ficha, el método GetValue suma ambos lados, el método Match compara cada cara de la ficha con un número, el método Rotate use una variable temporal para cambiar el valor de la derecha por el de la izquierda y viceversa, y el ToString es la representación en string del objeto. Por ahora tenemos las implementaciones que tenemos de la pieza son:
+Esta clase abstracta representa como su propio nombre dice la ficha, el token con que se juega. Básicamente esta clase tiene varios métodos ya predefinidos pero el método CanPlay deberá adaptarse para ver cómo se puede jugar una ficha en un determinado tablero. Las propiedades right y left representan el valor de cada lado de la ficha, el método GetValue suma ambos lados, el método Match responde a los metodos MatchRight y MatchLeft, los cuales a su vez varían en dependencia de la implementación de la ficha. 
 
 - RegularPiece donde es la manera estándar de colocal una ficha (que el lado de colocar coincida con alguno de los extremos del tablero)
 
@@ -98,6 +100,8 @@ Son todos los posibles jugadores que pueden haber en el juego. Por ahora nuestra
 - El PlayerRandom que siempre jugará una ficha aleatoria de su mano
 
 - El PlayerRanValue o también llamado en los círculos selectos como el Borracho, un bot que siempre jugará como BotaGorda menos en ciertas circunstancias (por lo general es que lo llama la mujer)
+
+- Un jugador SemiInteligente que mira la cantidad de fichas que se han jugado y juega acorde a ellas
 
 ### Round
 
