@@ -16,6 +16,10 @@ public static class Utils
     }
     public static IPlayer StandardCounter(GameObject game, IHandCounter HandCounter) => game.Players.MinBy(x => HandCounter.GetHandValue(x))!;
 
+    
+    
+
+
     public static string[] GetWinnables() 
         => typeof(IWinnable)
             .Assembly
@@ -61,7 +65,5 @@ public static class Utils
             .Where(p => p.BaseType ==  typeof(BasePlayer))
             .Select(p => p.Name)
             .ToArray(); 
-
-    //public static IPlayer[] GetPlayers() => new IPlayer[]{new PlayerRandom(), new PlayerMostValue(), new PlayerRandomValue()};
     
 }
