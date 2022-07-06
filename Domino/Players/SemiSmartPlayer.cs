@@ -17,6 +17,7 @@ public class SemiSmartPlayer: BasePlayer
                 if(piece.Match(pieceOnHand.Right)) PieceScore[pieceOnHand]+=1;
             }
         }
+        if(PieceScore.Count==0) return null!;
         Piece x = PieceScore.MaxBy(x=>x.Value).Key;
         Hand.Remove(x);
         return x;

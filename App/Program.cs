@@ -10,12 +10,15 @@ public class Program
             Console.Clear();
             System.Console.WriteLine("Want a quick game?");
             string yor = Console.ReadLine()!;
+            Console.Clear();
             if (yor == "Y" || yor == "y")
             {
                 var game = new GameObject();
                 game.Play();
                 System.Console.WriteLine(string.Join(" ", game.Changes.Board.PiecesOnBoard));
-                System.Console.WriteLine(game.Winner);
+                System.Console.WriteLine();
+                System.Console.WriteLine("Winner:" + game.Winner);
+                System.Console.WriteLine();
             }
             else
             {
@@ -25,15 +28,19 @@ public class Program
                 GameObject game = new GameObject(a[1], b, s, a[0]);
 
                 System.Console.WriteLine("Want to play a tournament?");
-                if(Console.ReadLine()=="Y"){
+                string f = Console.ReadLine()!;
+                Console.Clear();
+
+                if(f=="Y"||f=="y"){
                     System.Console.WriteLine("How many Games?");
                     int x = int.Parse(Console.ReadLine()!);
+                    Console.Clear();
                     for (int i = 0; i < x; i++)
                     {
                         game.Play();
                         System.Console.WriteLine(string.Join(" ", game.Changes.Board.PiecesOnBoard));
                         System.Console.WriteLine();
-                        System.Console.WriteLine(game.Winner);
+                        System.Console.WriteLine("Winner:" + game.Winner);
                         System.Console.WriteLine();
                         game.Reset();
                     }
@@ -42,7 +49,7 @@ public class Program
                     game.Play();
                     System.Console.WriteLine(string.Join(" ", game.Changes.Board.PiecesOnBoard));
                     System.Console.WriteLine();
-                    System.Console.WriteLine(game.Winner);
+                    System.Console.WriteLine("Winner:" + game.Winner);
                     System.Console.WriteLine();
                     game.Reset();
                 }
