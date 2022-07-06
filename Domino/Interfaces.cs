@@ -3,6 +3,7 @@ namespace Domino;
 public interface IPlayer
 {
     public List<Piece> Hand { get; set; }
+    public string Name { get; set; }
     public Piece Play(Board board);
     public void ResetHand(){
         Hand = new();
