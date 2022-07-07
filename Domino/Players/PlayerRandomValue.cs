@@ -5,6 +5,11 @@ public class PlayerRandomValue : BasePlayer
 {
 
     private IPlayer _mode;
+    public PlayerRandomValue(){
+        Name = Utils.GetName();
+        Hand = new List<Piece>();
+        _mode = new PlayerMostValue(Name);
+    }
     public PlayerRandomValue(string name)
     {
         Name = name;

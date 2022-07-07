@@ -2,6 +2,10 @@ namespace Domino;
 
 public class PlayerMostValue : BasePlayer
 {
+    public PlayerMostValue(){
+        Hand = new();
+        Name = Utils.GetName();
+    }
     public PlayerMostValue(string name)
     {
         Hand = new();

@@ -26,7 +26,10 @@ public class SemiSmartPlayer: BasePlayer
     }
     public SemiSmartPlayer(string name){
         Hand = new();
-
         Name = name;
+    }
+    public SemiSmartPlayer(){
+        Hand = new();
+        Name = Utils.GetName();
     }
 }

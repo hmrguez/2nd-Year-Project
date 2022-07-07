@@ -1,6 +1,6 @@
 namespace Domino;
 
-public class DoubleDoubleHandCounter : BaseHandCounter
+public class DoubleDoubleHandCounter : IHandCounter
 {
-    public override int GetHandValue(IPlayer player) => player.Hand.Sum(x => (x.Left == x.Right) ? x.GetValue() * 2 : x.GetValue());
+    public int GetHandValue(IPlayer player) => player.Hand.Sum(x => (x.Left == x.Right) ? x.GetValue() * 2 : x.GetValue());
 }

@@ -2,7 +2,10 @@ namespace Domino;
 
 public class PlayerRandom : BasePlayer
 {
-
+    public PlayerRandom(){
+        Hand = new();
+        Name = Utils.GetName();
+    }
     public PlayerRandom(string name)
     {
         Hand = new();

@@ -1,15 +1,15 @@
 namespace Domino;
 
-public class ValueSortedShuffler : BaseShuffler
+public class ValueSortedShuffler : IShuffler
 {
-    public override void Shuffle(IPlayer[] players, Board board, int maxHandSize)
+    public void Shuffle(IPlayer[] players, Board board, int maxHandSize)
     {
         foreach (IPlayer player in players)
         {
             ShufflePlayer(player, board, maxHandSize);
         }
     }
-    public override void ShufflePlayer(IPlayer player, Board board, int maxHandSize)
+    public void ShufflePlayer(IPlayer player, Board board, int maxHandSize)
     {
         board.Deck!.Sort(new SortedByValue());
         for (int i = 0; i < maxHandSize; i++)

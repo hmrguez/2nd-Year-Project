@@ -30,8 +30,8 @@ public class ConsoleUtils
             System.Console.WriteLine($"[{i}] {Utils.GetShufflers()[i]}");
         }
         x = int.Parse(Console.ReadLine()!);
-        y = typeof(BaseShuffler).Assembly.GetTypes().First(t => t.Name == Utils.GetShufflers()[x]);
-        var b = Activator.CreateInstance(y) as BaseShuffler;
+        y = typeof(IShuffler).Assembly.GetTypes().First(t => t.Name == Utils.GetShufflers()[x]);
+        var b = Activator.CreateInstance(y) as IShuffler;
 
         Console.Clear();
 
@@ -54,8 +54,8 @@ public class ConsoleUtils
             System.Console.WriteLine($"[{i}] {Utils.GetHandCounters()[i]}");
         }
         x = int.Parse(Console.ReadLine()!);
-        y = typeof(BaseHandCounter).Assembly.GetTypes().First(t => t.Name == Utils.GetHandCounters()[x]);
-        var d = Activator.CreateInstance(y) as BaseHandCounter;
+        y = typeof(IHandCounter).Assembly.GetTypes().First(t => t.Name == Utils.GetHandCounters()[x]);
+        var d = Activator.CreateInstance(y) as IHandCounter;
 
         Console.Clear();
 
@@ -66,8 +66,8 @@ public class ConsoleUtils
             System.Console.WriteLine($"[{i}] {Utils.GetRounders()[i]}");
         }
         x = int.Parse(Console.ReadLine()!);
-        y = typeof(BaseRounder).Assembly.GetTypes().First(t => t.Name == Utils.GetRounders()[x]);
-        var e = Activator.CreateInstance(y) as BaseRounder;
+        y = typeof(IRounder).Assembly.GetTypes().First(t => t.Name == Utils.GetRounders()[x]);
+        var e = Activator.CreateInstance(y) as IRounder;
 
         Console.Clear();
 

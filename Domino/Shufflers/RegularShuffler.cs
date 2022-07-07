@@ -1,12 +1,12 @@
 namespace Domino;
 
-public class RegularShuffler : BaseShuffler
+public class RegularShuffler : IShuffler
 {
-    public override void Shuffle(IPlayer[] players, Board board, int maxHandSize)
+    public void Shuffle(IPlayer[] players, Board board, int maxHandSize)
     {
         foreach (var player in players) ShufflePlayer(player, board, maxHandSize);
     }
-    public override void ShufflePlayer(IPlayer player, Board board, int maxHandSize)
+    public void ShufflePlayer(IPlayer player, Board board, int maxHandSize)
     {
         Random random = new();
         for (int i = 0; i < maxHandSize; i++)
