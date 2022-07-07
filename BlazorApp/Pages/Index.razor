@@ -56,7 +56,7 @@
                                         @foreach (var item in Table)
                                         {
                                             <tr>
-                                                <td>@item.Key.ToString()</td>
+                                                <td>@item.Key</td>
                                                 <td>@item.Value.ToString()</td>
                                             </tr>
                                         }
@@ -79,25 +79,17 @@
         <TabLabel><span class="oi oi-cog"></span> Settings</TabLabel>
         <TabContent>
             <div class="container" style="padding-top: 20px;">
+                <h2>General Settings</h2>
                 <EditForm Model="@Values" OnSubmit="@Save">
-                    <h2>General Settings</h2>
                     <div class="row row-cols-5">
                         <div class="col">
                             <h3>Winnable</h3>
                             <InputRadioGroup @bind-Value="Values.Winnable">
                                 @{
-                                    bool isFirstChecked = true;
                                     @foreach (var item in settingsList.Winnables) {
                                         <div>
-                                            @if(isFirstChecked)
-                                            {
-                                                isFirstChecked=false;
-                                                <input type="radio" id="@item" name="radioWin" value="@item" checked/>
-                                                <label for="@item">@item</label>
-                                            }else{
-                                                <input type="radio" id="@item" name="radioWin" value="@item"/>
-                                                <label for="@item">@item</label>
-                                            }
+                                            <InputRadio id="win" Value="@item"/>
+                                            <label for="win">@item</label>
                                         </div>
                                     }
                                 }
@@ -107,19 +99,10 @@
                             <h3>Rounder</h3>
                             <InputRadioGroup @bind-Value="Values.Rounder">
                                  @{
-                                    bool isFirstChecked = true;
                                     @foreach (var item in settingsList.Rounders) {
                                         <div>
-                                            @if(isFirstChecked)
-                                            {
-                                                isFirstChecked=false;
-                                                <input type="radio" id="@item" name="radioRounder" value="@item" checked/>
-                                                <label for="@item">@item</label>
-                                            }else{
-                                                <input type="radio" id="@item" name="radioRounder" value="@item"/>
-                                                <label for="@item">@item</label>
-                                            }
-                                            
+                                            <InputRadio id="round" Value="@item"/>
+                                            <label for="round">@item</label>
                                         </div>
                                     }
                                 }
@@ -129,19 +112,10 @@
                             <h3>Shuffler</h3>
                             <InputRadioGroup @bind-Value="Values.Shuffler">
                                  @{
-                                    bool isFirstChecked = true;
                                     @foreach (var item in settingsList.Shufflers) {
                                         <div>
-                                            @if(isFirstChecked)
-                                            {
-                                                isFirstChecked=false;
-                                                <input type="radio" id="@item" name="radioShuffler" value="@item" checked/>
-                                                <label for="@item">@item</label>
-                                            }else{
-                                                <input type="radio" id="@item" name="radioShuffler" value="@item"/>
-                                                <label for="@item">@item</label>
-                                            }
-                                            
+                                            <InputRadio id="shuf" Value="@item"/>
+                                            <label for="shuf">@item</label>
                                         </div>
                                     }
                                 }
@@ -151,19 +125,10 @@
                             <h3>HandCounter</h3>
                             <InputRadioGroup @bind-Value="Values.HandCounter">
                                 @{
-                                    bool isFirstChecked = true;
                                     @foreach (var item in settingsList.HandCounters) {
                                         <div>
-                                            @if(isFirstChecked)
-                                            {
-                                                isFirstChecked=false;
-                                                <input type="radio" id="@item" name="radioHand" value="@item" checked/>
-                                                <label for="@item">@item</label>
-                                            }else{
-                                                <input type="radio" id="@item" name="radioHand" value="@item"/>
-                                                <label for="@item">@item</label>
-                                            }
-                                            
+                                            <InputRadio id="hand" Value="@item"/>
+                                            <label for="hand">@item</label>
                                         </div>
                                     }
                                 }
@@ -173,19 +138,10 @@
                             <h3>Board</h3>
                             <InputRadioGroup @bind-Value="Values.Board">
                                 @{
-                                    bool isFirstChecked = true;
                                     @foreach (var item in settingsList.Boards) {
                                         <div>
-                                            @if(isFirstChecked)
-                                            {
-                                                isFirstChecked=false;
-                                                <input type="radio" id="@item" name="radioBoard" value="@item" checked/>
-                                                <label for="@item">@item</label>
-                                            }else{
-                                                <input type="radio" id="@item" name="radioBoard" value="@item"/>
-                                                <label for="@item">@item</label>
-                                            }
-                                            
+                                            <InputRadio id="board" Value="@item"/>
+                                            <label for="board">@item</label>
                                         </div>
                                     }
                                 }
@@ -213,23 +169,15 @@
                     <h2 style="padding-top: 25px;">Player Settings</h2>
                     <div class="row">
                         <div class="col-3">
-                            <InputRadioGroup @bind-Value="PlayerValues.Player1">
+                            <h3>Player1</h3>
+                            <input type="input-text" name="playerInput" placeholder="Name" @bind-value="Values.Player1Name" required>
+                            <InputRadioGroup id="mode1" @bind-Value="Values.Player1Mode">
                                 @{
-                                    <h3>Player1</h3>
-                                    <input type="input-text" name="playerInput" placeholder="Name" required>
-                                    bool isFirstChecked = true;
                                     @foreach (var player1 in settingsList.Players)
                                     {
                                         <div>
-                                            @if(isFirstChecked)
-                                            {
-                                                isFirstChecked=false;
-                                                <input type="radio" id="@player1" name="player1" value="@player1" checked/>
-                                                <label>@player1</label>
-                                            }else{
-                                                <input type="radio" id="@player1" name="player1" value="@player1"/>
-                                                <label>@player1</label>
-                                            }
+                                            <InputRadio id="player1" Value="@player1"/>
+                                            <label for="player1">@player1</label>
                                         </div>
                                     }
                                 }
@@ -237,73 +185,49 @@
                             
                         </div>
                         <div class="col-3">
-                            <InputRadioGroup @bind-Value="PlayerValues.Player2">
+                            <h3>Player2</h3>
+                            <input type="input-text" name="playerInput2" placeholder="Name" @bind-value="Values.Player2Name" required>
+                            <InputRadioGroup @bind-Value="Values.Player2Mode">
                                 @{
-                                    <h3>Player2</h3>
-                                    <input type="input-text" name="playerInput2" placeholder="Name" required>
-                                    bool isFirstChecked2 = true;
                                     @foreach (var player2 in settingsList.Players)
                                     {
                                         <div>
-                                            @if(isFirstChecked2)
-                                            {
-                                                isFirstChecked2=false;
-                                                <input type="radio" id="@player2" name="player2" value="@player2" checked/>
-                                                <label>@player2</label>
-                                            }else{
-                                                <input type="radio" id="@player2" name="player2" value="@player2"/>
-                                                <label>@player2</label>
-                                            }
+                                            <InputRadio id="player2" Value="@player2"/>
+                                            <label for="player2">@player2</label>
                                         </div>
                                     }
                                 }
                             </InputRadioGroup>
                         </div>
                         <div class="col-3">
-                            <InputRadioGroup @bind-Value="PlayerValues.Player3">
+                            <h3>Player3</h3>
+                            <input type="input-text" name="playerInput3" placeholder="Name" @bind-value="Values.Player3Name" disabled="@DisableRadioButton("3")" required>
+                            <InputRadioGroup @bind-Value="Values.Player3Mode">
                                 @{
-                                    <h3>Player3</h3>
-                                    <input type="input-text" name="playerInput3" placeholder="Name" required>
-                                    bool isFirstChecked3 = true;
                                     @foreach (var player3 in settingsList.Players)
                                     {
                                         <div>
-                                            @if(isFirstChecked3)
-                                            {
-                                                isFirstChecked3=false;
-                                                <input type="radio" id="@player3" name="player3" value="@player3" disabled="@DisableRadioButton("3")" checked/>
-                                                <label>@player3</label>
-                                            }else{
-                                                <input type="radio" id="@player3" name="player3" value="@player3" disabled="@DisableRadioButton("3")" />
-                                                <label>@player3</label>
-                                            }
+                                            <InputRadio id="player3" Value="@player3"/>
+                                            <label for="player3">@player3</label>
                                         </div>
                                     }
                                 }
                             </InputRadioGroup>
                         </div>
                         <div class="col-3">
-                                <InputRadioGroup @bind-Value="PlayerValues.Player4">
-                                    @{
-                                        <h3>Player4</h3>
-                                        <input type="input-text" name="playerInput4" placeholder="Name" required>
-                                        bool isFirstChecked4 = true;
-                                        @foreach (var player4 in settingsList.Players)
-                                        {
-                                            <div>
-                                                @if(isFirstChecked4)
-                                                {
-                                                    isFirstChecked4=false;
-                                                    <input type="radio" id="@player4" name="player4" value="@player4" disabled="@DisableRadioButton("4")" checked/>
-                                                    <label>@player4</label>
-                                                }else{
-                                                    <input type="radio" id="@player4" name="player4" value="@player4" disabled="@DisableRadioButton("4")" />
-                                                    <label>@player4</label>
-                                                }
-                                            </div>
-                                        }
+                            <h3>Player4</h3>
+                            <input type="input-text" name="playerInput4" placeholder="Name" @bind-value="Values.Player4Name" disabled="@DisableRadioButton("4")" required>
+                            <InputRadioGroup @bind-Value="Values.Player4Mode">
+                                @{
+                                    @foreach (var player4 in settingsList.Players)
+                                    {
+                                        <div>
+                                            <InputRadio id="player4" Value="@player4"/>
+                                            <label for="player4">@player4</label>
+                                        </div>
                                     }
-                                </InputRadioGroup>
+                                }
+                            </InputRadioGroup>
                         </div>
                     </div>
                     <div class="row" style="padding-top: 50px;">
@@ -353,9 +277,9 @@
             {
                 PiecesBoard += (play + " ");
             }
-            Winner = Games[Count].Winner!.ToString();
+            Winner = Games[Count].Winner!.Name;
             if(Count <= Games.Length && Table!.Sum(s=> s.Value) == Count)
-                Table![Games![Count].Winner!.ToString()!]+=1;
+                Table![Games![Count].Winner!.Name]+=1;
             
         }
     }
@@ -375,7 +299,7 @@
                 Games = MakingGame.MakingGames(MarkedValues, 1);
                 TournamentClass.PlayTournament(Games);
             }
-            CreatingTable(Games[Count].Players);
+            CreatingTable(Games[0].Players);
         }
     }
     private void CreatingTable(IPlayer[] players)
@@ -383,20 +307,20 @@
         Table = new Dictionary<string, int>();
         foreach (var player in players)
         {
-            Table.Add(player.ToString()!, 0);
+            Table.Add(player.Name, 0);
         }
     }
 #endregion
 
 #region Settings
     public Value Values{get; set;} = new ();
-    public PlayerValue PlayerValues{get;set;} = new ();
     private SettingsList settingsList{ get;} = new SettingsList();
     private void Save()
     {
         MarkedValues = new Value(Values.Winnable!, Values.Rounder!, Values.Shuffler!, 
                                 Values.HandCounter!, Values.Board!, Values.Amount, 
-                                Values.MaximumSize, Values.MaxHandSize, Values.AmountPlayers, Players.ToArray());
+                                Values.MaximumSize, Values.MaxHandSize, Values.AmountPlayers, 
+                                Values.GetPlayers(Values.GetAmountPlayers()));
     }
     public bool DisableRadioButton(string number)
     {
@@ -404,7 +328,6 @@
 
         return Values.GetAmountPlayers() < num? true:false;
     }
-    public List<string> Players { get; set; } = new List<string>();//Quitar
     
 
 #endregion
