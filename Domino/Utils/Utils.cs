@@ -2,7 +2,9 @@ namespace Domino;
 
 public static class Utils
 {
-    static string[] Names = new string[] { "MartaBot", "TobiasBot", "FranciscoBot", "VladBot", "HectorBot", "AlejandroBot", "KarenBot", "LuisBot", "JavierBot" };
+    static string[] Names = new string[] { "MartaBot", "TobiasBot", "FranciscoBot", "VladBot", "HectorBot", "AlejandroBot", 
+    "KarenBot", "LuisBot", "JavierBot", "PennyBot", "SheldonBot", "LeonardBot", "RajBot", "HowardBot", "AmyBot", "LynnBot",
+    "RaulBot", "SaulBot" , "DimitriBot", "NikolaBot"};
     public static bool IsBlocked(GameObject game)
     {
         if (game.Rounds.Count > game.Players.Length)

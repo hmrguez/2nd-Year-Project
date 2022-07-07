@@ -18,6 +18,7 @@ public class Program
                 System.Console.WriteLine(string.Join(" ", game.Settings.Board.PiecesOnBoard));
                 System.Console.WriteLine();
                 System.Console.WriteLine("Winner: " + game.Winner + " (" + game.Winner?.Name + ")");
+                System.Console.WriteLine("------------------------------------------------------------------------");
                 System.Console.WriteLine();
             }
             else
@@ -41,6 +42,7 @@ public class Program
                         System.Console.WriteLine(string.Join(" ", game.Settings.Board.PiecesOnBoard));
                         System.Console.WriteLine();
                         System.Console.WriteLine("Winner: " + game.Winner + " (" + game.Winner?.Name + ")");
+                        System.Console.WriteLine("------------------------------------------------------------------------");
                         System.Console.WriteLine();
                         game.Reset();
                     }
@@ -50,6 +52,7 @@ public class Program
                     System.Console.WriteLine(string.Join(" ", game.Settings.Board.PiecesOnBoard));
                     System.Console.WriteLine();
                     System.Console.WriteLine("Winner: " + game.Winner + " (" + game.Winner?.Name + ")");
+                    System.Console.WriteLine("------------------------------------------------------------------------");
                     System.Console.WriteLine();
                     game.Reset();
                 }
