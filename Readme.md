@@ -21,4 +21,4 @@ Es un modelo de un juego de dominó con bots. El juego tiene capacidad de ser mo
 
 - dotnet watch run
 
-(Tener en cuenta que se deben escoger las opciones antes de jugar en la aplicación Blazor y después darle a Save y después se juega solo)
+(Tener en cuenta que se deben escoger las opciones antes de jugar en la aplicación Blazor, después darle a Save y después a Play)
