@@ -8,12 +8,10 @@
         <TabLabel><span class="oi oi-play-circle"></span> Play</TabLabel>
         <TabContent>
             <div class="container @(Playing ? "d-none" : "")">
-                <div class="row row-col-3">
+                <div class="row">
                     <div class="col" style="text-align: center; padding-top: 150px">
-                        <h1 class="Domino">Domino</h1>
+                        <h1 class="Domino" style="font-size: 100px;">Domino</h1>
                         <BSButton class="btn-main" Color="BSColor.Primary" style="font-size: 25px;" @onclick="@Play"><span>Play</span><i></i></BSButton>
-                    </div>
-                    <div class="col-3" style="padding-top: 25px;">
                     </div>
                 </div>
             </div>
@@ -32,10 +30,10 @@
                                     @foreach (var item in Games[Count].Rounds!)
                                     {
                                         @if(item.Piece == null){
-                                            <p>Pass - @item.Player.ToString()</p>
+                                            <p>Pass - @item.Player.Name</p>
                                         }
                                         else{
-                                            <p>@item.Piece.ToString() - @item.Player.ToString()</p>
+                                            <p>@item.Piece.ToString() - @item.Player.Name</p>
                                         }
                                     }
                                     if(Count + 1 < Games.Length)
@@ -170,7 +168,9 @@
                     <div class="row">
                         <div class="col-3">
                             <h3>Player1</h3>
-                            <input type="input-text" name="playerInput" placeholder="Name" @bind-value="Values.Player1Name" required>
+                            <div>
+                                <input type="input-text" name="playerInput" placeholder="Name" @bind-value="Values.Player1Name" required>
+                            </div>
                             <InputRadioGroup id="mode1" @bind-Value="Values.Player1Mode">
                                 @{
                                     @foreach (var player1 in settingsList.Players)
@@ -186,7 +186,9 @@
                         </div>
                         <div class="col-3">
                             <h3>Player2</h3>
-                            <input type="input-text" name="playerInput2" placeholder="Name" @bind-value="Values.Player2Name" required>
+                            <div>
+                                <input type="input-text" name="playerInput" placeholder="Name" @bind-value="Values.Player2Name" required>
+                            </div>
                             <InputRadioGroup @bind-Value="Values.Player2Mode">
                                 @{
                                     @foreach (var player2 in settingsList.Players)
@@ -201,7 +203,9 @@
                         </div>
                         <div class="col-3">
                             <h3>Player3</h3>
-                            <input type="input-text" name="playerInput3" placeholder="Name" @bind-value="Values.Player3Name" disabled="@DisableRadioButton("3")" required>
+                            <div>
+                                <input type="input-text" name="playerInput" placeholder="Name" @bind-value="Values.Player3Name" required>
+                            </div>
                             <InputRadioGroup @bind-Value="Values.Player3Mode">
                                 @{
                                     @foreach (var player3 in settingsList.Players)
@@ -216,7 +220,9 @@
                         </div>
                         <div class="col-3">
                             <h3>Player4</h3>
-                            <input type="input-text" name="playerInput4" placeholder="Name" @bind-value="Values.Player4Name" disabled="@DisableRadioButton("4")" required>
+                            <div>
+                                <input type="input-text" name="playerInput" placeholder="Name" @bind-value="Values.Player4Name" required>
+                            </div>
                             <InputRadioGroup @bind-Value="Values.Player4Mode">
                                 @{
                                     @foreach (var player4 in settingsList.Players)
@@ -289,9 +295,9 @@
     {
         if(MarkedValues != null){
             Playing = true;
-            if(TournamentClass.IsTournament(MarkedValues.GetAmount()))
+            if(TournamentClass.IsTournament(GetInstances.GetAmount(MarkedValues.Amount)))
             {
-                Games = MakingGame.MakingGames(MarkedValues, MarkedValues.GetAmount());
+                Games = MakingGame.MakingGames(MarkedValues, GetInstances.GetAmount(MarkedValues.Amount));
                 TournamentClass.PlayTournament(Games);
             }
             else
@@ -320,13 +326,17 @@
         MarkedValues = new Value(Values.Winnable!, Values.Rounder!, Values.Shuffler!, 
                                 Values.HandCounter!, Values.Board!, Values.Amount, 
                                 Values.MaximumSize, Values.MaxHandSize, Values.AmountPlayers, 
-                                Values.GetPlayers(Values.GetAmountPlayers()));
+                                GetInstances.GetPlayers(GetInstances.GetAmountPlayers(Values.AmountPlayers), 
+                                                        Values.Player1Mode!, Values.Player2Mode!, 
+                                                        Values.Player3Mode!, Values.Player4Mode!,
+                                                        Values.Player1Name!, Values.Player2Name!, 
+                                                        Values.Player3Name!, Values.Player4Name!));
     }
     public bool DisableRadioButton(string number)
     {
         int num = int.Parse(number);
 
-        return Values.GetAmountPlayers() < num? true:false;
+        return GetInstances.GetAmountPlayers(Values.AmountPlayers) < num? true:false;
     }
     
 

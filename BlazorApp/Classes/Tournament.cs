@@ -9,7 +9,12 @@ public class TournamentClass
         int count = 0;
         while (count < games.Length)
         {
-            games[count++].Play();
+            games[count].Play();
+            foreach (var player in games[count].Players)
+            {
+                player.ResetHand();
+            }
+            count++;
         }
     }
 }
