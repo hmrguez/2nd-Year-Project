@@ -12,36 +12,36 @@ public interface IPlayer
 
 public interface IRounder
 {
-    ///<returns> The next player that should play in the game </returns>
+    ///<returns> El siguiente jugador que debe jugar </returns>
     public IPlayer NextPlayer(GameObject game);
 }
 public interface IWinnable
 {
-    ///<summary> Determines if wether the game was won or wasn't (blocked generally) </summary>
+    ///<summary> Determina si el juego fue ganado o no </summary>
     public bool Won { get; }
 
-    ///<summary> Determines if this game has ended, changes the Won to true it was won </summary>
-    ///<returns> True if the game has ended, false if it wasn't </returns>
+    ///<summary> Determina si el juego terminó, debería cambiarse el Won a true si se ganó, y no cambiarse si no </summary>
+    ///<returns> True si el juego terminó o false si no</returns>
     public bool EndCondition(GameObject game);
 
-    ///<returns> The Winner of the game </returns>
+    ///<returns> El ganador del juego </returns>
     public IPlayer Winner(GameObject game);
 }
 public interface IShuffler
 {
-    ///<summary> Shuffles the pieces between all the players in the game </summary>
+    ///<summary> Reparte las fichas entre todos los jugadores del partido </summary>
     public void Shuffle(IPlayer[] players, Board board, int maxHandSize);
 
-    ///<summary> Shuffles the pieces to a single player </summary>
+    ///<summary> reparte las fichas a los jugadores del partido </summary>
     public void ShufflePlayer(IPlayer player, Board board, int maxHandSize);
 }
 public class Round
 {
 
-    ///<summary> The player who played in this round </summary>
+    ///<summary> El jugador que jugó </summary>
     public IPlayer Player { get; set; }
 
-    ///<summary> The piece played in this round </summary>
+    ///<summary> La ficha que se jugó </summary>
     public Piece Piece { get; set; }
     public Round(IPlayer player, Piece piece)
     {
@@ -52,6 +52,6 @@ public class Round
 public interface IHandCounter
 {
 
-    ///<returns> The way the points are given to the player according to their hand </returns>
+    ///<returns> La manera que se dan los puntos de la mano </returns>
     int GetHandValue(IPlayer player);
 }
