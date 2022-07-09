@@ -5,7 +5,7 @@ public abstract class BaseWinnable : IWinnable
     public bool Won { get; protected set; }
     public IPlayer Winner(GameObject game) => Won 
         ? game.Rounds.Last().Player 
-        : Utils.StandardCounter(game, game.Settings.HandCounter);
+        : Utils.StandardCounter(game);
 
     public abstract bool EndCondition(GameObject game);
     

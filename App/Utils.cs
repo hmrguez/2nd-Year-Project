@@ -2,7 +2,7 @@ using Domino;
 
 public static class ConsoleUtils
 {
-    ///<summary>Consigue la propiedad ChangedThings del juego</summary>
+    ///<summary>Consigue la propiedad Settings del juego</summary>
     public static Settings GetMainConfig() => new Settings(
         (new Getter<Board>()).GetConfig("Board",Utils.GetT(typeof(Board))),
         (new Getter<IWinnable>()).GetConfig("IWinnable",Utils.GetT(typeof(IWinnable))),
@@ -48,8 +48,12 @@ public static class ConsoleUtils
         System.Console.WriteLine();
     }
 }
-
 public class Getter<T>{
+
+    ///<summary>Cicla por todas las iteraciones de cada módulo y le da a escoger al usuario</summary>
+    ///<param name="x">Es el string que se imprime en el encabezado, puramente decorativo</param>
+    ///<param name="y">Es el array de donde se sacan todos los tipos que se quieren</param>
+    ///<returns>Una instancia de tipo T del módulo en el índice que escogio el usuario</returns>   
     public T GetConfig(string x, string[] y){
         System.Console.WriteLine("Choose your " + x );
         for (int i = 0; i < y.Length; i++)

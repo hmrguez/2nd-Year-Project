@@ -9,19 +9,14 @@ public static class Utils
     {
         if (game.Rounds.Count > game.Players.Length)
         {
-            // for (int i = 0; i < game.Players.Length; i++)
-            // {
-            //     if (game.Rounds[(game.Rounds.Count - 1) - i].Piece != null) break;
-            //     if (i == game.Players.Length - 1) return true;
-            // }
-            // return false;
-
             foreach (var item in game.Rounds.TakeLast(game.Players.Length)) if(item.Piece!=null) return false;
             return true;
         }
         return false;
     }
-    public static IPlayer StandardCounter(GameObject game, IHandCounter HandCounter) => game.Players.MinBy(x => HandCounter.GetHandValue(x))!;
+
+    ///<returns>El jugador con menor Score en la mano</returns>
+    public static IPlayer StandardCounter(GameObject game) => game.Players.MinBy(x => game.Settings.HandCounter.GetHandValue(x))!;
 
     public static int SumaDomino(int x)
     {
@@ -35,7 +30,7 @@ public static class Utils
         int x = r.Next(0, Names.Length);
         return Names[x];
     }
-
+    ///<returns>El nombre de todos los elementos que hereden de una clase o interfaz mientras no sean clases abstractas o interfaces</returns>
     public static string[] GetT(Type x)
         => x.Assembly
         .GetTypes()
