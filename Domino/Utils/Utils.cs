@@ -4,16 +4,20 @@ public static class Utils
 {
     static string[] Names = new string[] { "MartaBot", "TobiasBot", "FranciscoBot", "VladBot", "HectorBot", "AlejandroBot",
     "KarenBot", "LuisBot", "JavierBot", "PennyBot", "SheldonBot", "LeonardBot", "RajBot", "HowardBot", "AmyBot", "LynnBot",
-    "RaulBot", "SaulBot" , "DimitriBot", "NikolaBot", "AmandaBot", "CamilaBot", "CatherinBot"};
+    "RaulBot", "SaulBot" , "DimitriBot", "NikolaBot", "AmandaBot", "CamilaBot", "CatherinBot", "EdwardBot", "AlbertoBot"};
     public static bool IsBlocked(GameObject game)
     {
         if (game.Rounds.Count > game.Players.Length)
         {
-            for (int i = 0; i < game.Players.Length; i++)
-            {
-                if (game.Rounds[(game.Rounds.Count - 1) - i].Piece != null) break;
-                if (i == game.Players.Length - 1) return true;
-            }
+            // for (int i = 0; i < game.Players.Length; i++)
+            // {
+            //     if (game.Rounds[(game.Rounds.Count - 1) - i].Piece != null) break;
+            //     if (i == game.Players.Length - 1) return true;
+            // }
+            // return false;
+
+            foreach (var item in game.Rounds.TakeLast(game.Players.Length)) if(item.Piece!=null) return false;
+            return true;
         }
         return false;
     }
