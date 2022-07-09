@@ -73,7 +73,7 @@ public static class GetInstances
             {
                 if(players[i].Name == players[j].Name)
                 {
-                    players[j].Name = players[j].Name + "1";
+                    players[j].Name = players[j].Name + j;
                 }
             }
         }
