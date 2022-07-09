@@ -12,11 +12,11 @@ public class SettingsList
 
     public SettingsList()
     {
-        Winnables = Utils.GetWinnables();
-        Rounders = Utils.GetRounders();
-        Shufflers = Utils.GetShufflers();
-        HandCounters = Utils.GetHandCounters();
-        Boards = Utils.GetBoards();
-        Players = Utils.GetPlayers();
+        Winnables = Utils.GetT(typeof(IWinnable));
+        Rounders = Utils.GetT(typeof(IRounder));
+        Shufflers = Utils.GetT(typeof(IShuffler));
+        HandCounters = Utils.GetT(typeof(IHandCounter));
+        Boards = Utils.GetT(typeof(Board));
+        Players = Utils.GetT(typeof(IPlayer));
     }
 }

@@ -2,7 +2,7 @@ namespace Domino;
 
 public static class Utils
 {
-    static string[] Names = new string[] { "MartaBot", "TobiasBot", "FranciscoBot", "VladBot", "HectorBot", "AlejandroBot", 
+    static string[] Names = new string[] { "MartaBot", "TobiasBot", "FranciscoBot", "VladBot", "HectorBot", "AlejandroBot",
     "KarenBot", "LuisBot", "JavierBot", "PennyBot", "SheldonBot", "LeonardBot", "RajBot", "HowardBot", "AmyBot", "LynnBot",
     "RaulBot", "SaulBot" , "DimitriBot", "NikolaBot", "AmandaBot", "CamilaBot", "CatherinBot"};
     public static bool IsBlocked(GameObject game)
@@ -19,9 +19,10 @@ public static class Utils
     }
     public static IPlayer StandardCounter(GameObject game, IHandCounter HandCounter) => game.Players.MinBy(x => HandCounter.GetHandValue(x))!;
 
-    public static int SumaDomino(int x){
-        if(x==0) return 1;
-        return x+1 + SumaDomino(x-1);
+    public static int SumaDomino(int x)
+    {
+        if (x == 0) return 1;
+        return x + 1 + SumaDomino(x - 1);
     }
 
     public static string GetName()
@@ -31,51 +32,10 @@ public static class Utils
         return Names[x];
     }
 
-
-    public static string[] GetWinnables()
-        => typeof(IWinnable)
-            .Assembly
-            .GetTypes()
-            .Where(p => p.BaseType == typeof(BaseWinnable))
-            .Select(p => p.Name)
-            .OrderByDescending(p => p)
-            .ToArray();
-    public static string[] GetShufflers()
-        => typeof(IShuffler)
-            .Assembly
-            .GetTypes()
-            .Where(p => typeof(IShuffler).IsAssignableFrom(p) && p.IsClass)
-            .Select(p => p.Name)
-            .ToArray();
-    public static string[] GetRounders()
-        => typeof(IRounder)
-            .Assembly
-            .GetTypes()
-            .Where(p => typeof(IRounder).IsAssignableFrom(p) && p.IsClass)
-            .Select(p => p.Name)
-            .ToArray();
-    public static string[] GetBoards()
-        => typeof(Board)
-            .Assembly
-            .GetTypes()
-            .Where(p => p.BaseType == typeof(Board))
-            .Select(p => p.Name)
-            .OrderByDescending(p => p)
-            .ToArray();
-    public static string[] GetHandCounters()
-        => typeof(IHandCounter)
-            .Assembly
-            .GetTypes()
-            .Where(p => typeof(IHandCounter).IsAssignableFrom(p) && p.IsClass)
-            .Select(p => p.Name)
-            .OrderByDescending(p => p)
-            .ToArray();
-    public static string[] GetPlayers()
-        => typeof(IPlayer)
-            .Assembly
-            .GetTypes()
-            .Where(p => p.BaseType == typeof(BasePlayer))
-            .Select(p => p.Name)
-            .ToArray();
-
+    public static string[] GetT(Type x)
+        => x.Assembly
+        .GetTypes()
+        .Where(p => x.IsAssignableFrom(p) && !p.IsInterface && !p.IsAbstract)
+        .Select(p => p.Name)
+        .ToArray();
 }

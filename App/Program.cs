@@ -15,17 +15,13 @@ public class Program
             {
                 var game = new GameObject();
                 game.Play();
-                System.Console.WriteLine(string.Join(" ", game.Settings.Board.PiecesOnBoard));
-                System.Console.WriteLine();
-                System.Console.WriteLine("Winner: " + game.Winner + " (" + game.Winner?.Name + ")");
-                System.Console.WriteLine("------------------------------------------------------------------------");
-                System.Console.WriteLine();
+                game.PrintGame();
             }
             else
             {
                 Settings s = ConsoleUtils.GetMainConfig();
                 int[] a = ConsoleUtils.GetSideConfig();
-                BasePlayer[] b = ConsoleUtils.GetPlayerConfig(a[2]);
+                IPlayer[] b = ConsoleUtils.GetPlayerConfig(a[2]);
                 GameObject game = new GameObject(a[1], b, s, a[0]);
 
                 System.Console.WriteLine("Want to play a tournament?");
@@ -39,21 +35,13 @@ public class Program
                     for (int i = 0; i < x; i++)
                     {
                         game.Play();
-                        System.Console.WriteLine(string.Join(" ", game.Settings.Board.PiecesOnBoard));
-                        System.Console.WriteLine();
-                        System.Console.WriteLine("Winner: " + game.Winner + " (" + game.Winner?.Name + ")");
-                        System.Console.WriteLine("------------------------------------------------------------------------");
-                        System.Console.WriteLine();
+                        game.PrintGame();
                         game.Reset();
                     }
                 }
                 else{
                     game.Play();
-                    System.Console.WriteLine(string.Join(" ", game.Settings.Board.PiecesOnBoard));
-                    System.Console.WriteLine();
-                    System.Console.WriteLine("Winner: " + game.Winner + " (" + game.Winner?.Name + ")");
-                    System.Console.WriteLine("------------------------------------------------------------------------");
-                    System.Console.WriteLine();
+                    game.PrintGame();
                     game.Reset();
                 }
             }
