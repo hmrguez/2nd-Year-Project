@@ -19,6 +19,11 @@ public static class Utils
     }
     public static IPlayer StandardCounter(GameObject game, IHandCounter HandCounter) => game.Players.MinBy(x => HandCounter.GetHandValue(x))!;
 
+    public static int SumaDomino(int x){
+        if(x==0) return 1;
+        return x+1 + SumaDomino(x-1);
+    }
+
     public static string GetName()
     {
         Random r = new Random();

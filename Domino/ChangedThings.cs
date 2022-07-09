@@ -1,5 +1,6 @@
 namespace Domino;
 
+///<summary>Contiene todos los modulos modificables del juego</summary>
 public class Settings
 {
     public Settings(Board board, IWinnable winCondition, IRounder rounder, IShuffler shuffler, IHandCounter handCounter)

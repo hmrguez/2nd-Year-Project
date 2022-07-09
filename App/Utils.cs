@@ -82,10 +82,13 @@ public class ConsoleUtils
         int[] m = new int[3];
         System.Console.WriteLine("Choose your Board Size");
         m[0] = int.Parse(Console.ReadLine()!);
+        System.Console.WriteLine();
         System.Console.WriteLine("Choose your Hand Size");
         m[1] = int.Parse(Console.ReadLine()!);
-        System.Console.WriteLine("Choose your amount of Players Size");
+        System.Console.WriteLine();
+        System.Console.WriteLine("Choose your amount of Players Size. Notice that it should be less than " + (Utils.SumaDomino(m[0])/m[1])+1);
         m[2] = int.Parse(Console.ReadLine()!);
+        System.Console.WriteLine();
         Console.Clear();
         return m;
     }

@@ -3,11 +3,11 @@ namespace Domino;
 public class GameObject
 {
     public int MaxHandSize { get; }
-    public int BoardSize { get; set; }
-    public List<Round> Rounds { get; set; }
+    public int BoardSize { get; }
+    public List<Round> Rounds { get; private set; }
     public IPlayer[] Players { get; }
-    public IPlayer CurrentPlayer { get; set; }
-    public IPlayer? Winner { get; set; }
+    public IPlayer CurrentPlayer { get; private set; }
+    public IPlayer? Winner { get; private set; }
     public Settings Settings { get; }
 
     public GameObject()
@@ -27,10 +27,13 @@ public class GameObject
         Rounds = new();
         CurrentPlayer = Players[0];
         BoardSize = boardSize;
+
+        //Se actualiza el Deck del Board con todas las posibles combinaciones de ficha con ese doble maximo
         Settings.Board.Deck = Settings.Board.Generate(boardSize);
     }
     public void Play()
     {
+        // Se reparten a los jugadores las fichas
         Settings.Shuffler.Shuffle(Players, Settings.Board, MaxHandSize);
 
         while (true)
@@ -45,7 +48,9 @@ public class GameObject
             }
             else if (x != null)
             {
-                // Si no, por como funciona el Play, se sabe que o se 
+                // Si no, por como funciona el Play, se sabe que o se puede puede jugar por la izquierda o derecha
+                // Se prueba con cada una, rotando si es necesario
+                // Si al final no entra en ningun caso el jugador esta mal implementado de alguna forma y da excepcion
                 if (x.Match(Settings.Board.PiecesOnBoard.Last().Right))
                 {
                     if (x.MatchLeft(Settings.Board.PiecesOnBoard.Last().Right))
@@ -73,15 +78,22 @@ public class GameObject
                     throw new Exception("Ha introducido un jugador que hace trampas");
                 }
             }
+            //Se actualizan las rondas con la nueva jugada, que puede ser null si el tipo se pasa
             Rounds.Add(new Round(CurrentPlayer, x!));
+
+            //Se comprueba siempre si al terminar la ronda se gano o tranco el juego y si da correcto sale del bucle
             if (Settings.WinCondition.EndCondition(this))
             {
                 Winner = Settings.WinCondition.Winner(this);
                 break;
             }
+
+            //Se cambia el jugador actual por el siguiente en 
             CurrentPlayer = Settings.Rounder.NextPlayer(this);
         }
     }
+
+    ///<summary>Vuelve el juego a su estado inicial</summary>
     public void Reset()
     {
         Settings.Board.Deck = Settings.Board.Generate(BoardSize);
