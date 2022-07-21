@@ -35,6 +35,8 @@ public class Program
                     Console.Clear();
                     for (int i = 0; i < x; i++)
                     {
+                        System.Console.WriteLine(i+1 + ConsoleUtils.Number(i+1) + " Game");
+                        System.Console.WriteLine();
                         game.Play();
                         game.PrintGame();
                         game.Reset();
