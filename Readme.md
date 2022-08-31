@@ -4,6 +4,8 @@
 
 Es un modelo de un juego de dominó con bots. El juego tiene capacidad de ser moldeable con respecto a los siguientes aspectos: cantidad y tipo de jugadores, dobe máximo de ficha, tamaño de la mano del jugador, forma en la que se gana el juego y se elige el ganador, forma de jugar una ficha, manera en la que se reparten las fichas, manera en la que se cuenta las fichas de la mano y se da su puntuación, y la manera en que se reparte el orden de los jugadores
 
+Tanto para la aplicación de consola como para la aplicación de Blazor es necesario tener .NET SDK 6.0 instalado. Si no lo tiene puede desargarlo [aqui](https://dotnet.microsoft.com/en-us/download/dotnet/6.0);
+
 ## Instrucciones para abrir consola
 
 (Ninguna dependencia)
