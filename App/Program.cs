@@ -14,7 +14,7 @@ public class Program
             if (yor == "Y" || yor == "y")
             {
                 var game = new GameObject();
-                game.Play();
+                PlayGame.Play(game);
                 game.PrintGame();
             }
             else
@@ -34,13 +34,13 @@ public class Program
                     Console.Clear();
                     for (int i = 0; i < x; i++)
                     {
-                        game.Play();
+                        PlayGame.Play(game);
                         game.PrintGame();
                         game.Reset();
                     }
                 }
                 else{
-                    game.Play();
+                    PlayGame.Play(game);
                     game.PrintGame();
                     game.Reset();
                 }

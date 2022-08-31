@@ -4,17 +4,17 @@ public class GameObject
 {
     public int MaxHandSize { get; }
     public int BoardSize { get; }
-    public List<Round> Rounds { get; private set; }
+    public List<Round> Rounds { get; set; }
     public IPlayer[] Players { get; }
-    public IPlayer CurrentPlayer { get; private set; }
-    public IPlayer? Winner { get; private set; }
+    public IPlayer CurrentPlayer { get; set; }
+    public IPlayer? Winner { get; set; }
     public Settings Settings { get; }
 
     public GameObject()
     {
         Settings = new(new RegularBoard(), new RegularWinnable(), new Clockwise(), new RegularShuffler(), new RegularHandCounter());
         MaxHandSize = 10;
-        Players = new IPlayer[] { new PlayerMostValue("MartaBot"), new PlayerRandom("TobiasBot"), new PlayerRandom("FranciscoBot"), new PlayerMostValue("VladBot") };
+        Players = new IPlayer[] { new PlayerMostValue("MartaBot"), new HumanPlayer() { Name = "You" }, new PlayerRandom("FranciscoBot"), new PlayerMostValue("VladBot") };
         CurrentPlayer = Players[0];
         Settings.Board.Deck = Settings.Board.Generate(9);
         Rounds = new();

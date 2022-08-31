@@ -36,6 +36,13 @@ public static class ConsoleUtils
         while (k < p)
         {
             result[k] = (new Getter<IPlayer>()).GetConfig("Player",Utils.GetT(typeof(IPlayer)));
+            if(result[k] is HumanPlayer)
+            {
+                System.Console.WriteLine("Name: ");
+                string name = Console.ReadLine()!;
+                result[k].Name = name;
+                Console.Clear();
+            }
             k += 1;
         }
         return result;
